@@ -24905,8 +24905,9 @@ function (_React$Component) {
     key: "increaseTime",
     value: function increaseTime(min) {
       var ms = min * 60;
-      this.setState({
-        time: this.state.time + ms
+      var newTime = 0;
+      this.state.time + ms >= 6000 ? this.newTime = 5940 : this.newTime = this.state.time + ms, this.setState({
+        time: this.newTime
       }, function () {
         this.formatTime();
       });

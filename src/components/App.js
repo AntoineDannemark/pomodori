@@ -84,8 +84,10 @@ class App extends React.Component {
 
     increaseTime(min) {
         let ms = min * 60;
+        let newTime = 0;
+        (this.state.time + ms >= 6000) ? this.newTime = 5940 : this.newTime = this.state.time + ms,     
         this.setState({
-            time: this.state.time + ms,
+            time: this.newTime,
         }, function() {
             this.formatTime();
         });

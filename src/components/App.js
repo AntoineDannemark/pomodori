@@ -1,7 +1,7 @@
 import React from "react";
 import Timer from './Timer'
 import Controls from './Controls';
-// import './App.css';
+import './App.css';
 
 class App extends React.Component {
     constructor(props) {
@@ -13,23 +13,17 @@ class App extends React.Component {
             running: false,
             toggleDisplay: "Start",
             digits: [0, 0, 0, 0],
-            // digits: {
-            //     digitOne: 0,
-            //     digitTwo: 0,
-            //     digitThree: 0,
-            //     digitFour: 0,
-            // }
+
         };
-        this.toggle = this.toggle.bind(this);
         this.countTime = this.countTime.bind(this);
         this.increaseTime = this.increaseTime.bind(this);
         this.decreaseTime = this.decreaseTime.bind(this);
-        // this.digits = this.digits.bind(this);
+        this.toggle = this.toggle.bind(this);
     }
     
     componentDidMount() {
         this.formatTime();
-        // console.log(this.digits.digitOne.value);
+        console.log(this);
     }
     
     countTime() {
@@ -60,7 +54,6 @@ class App extends React.Component {
 
     reset() {
         clearInterval(this.interval);
-        // let time = this.format(this.state.time);
         this.setState({
             running: false, 
             time: 1200,
@@ -68,7 +61,7 @@ class App extends React.Component {
         }, function() {
             this.formatTime();
         });
-      }
+    }
 
     toggle() {
         if (this.state.running === false) {
@@ -135,10 +128,6 @@ class App extends React.Component {
         });  
     }
 
-    handleClick() {
-
-    }
-
     render() {
         console.log(this);
         return (
@@ -148,12 +137,9 @@ class App extends React.Component {
                     running={this.state.running} 
                     toggleDisplay={this.state.toggleDisplay}
                     toggle={() => this.toggle}
-                    increaseTime={() => this.increaseTime}
+                    increaseTime={(() => this.increaseTime)}
                     decreaseTime={() => this.decreaseTime}
-                />
-                {/* <button disabled={this.state.running} onClick={(() => this.decreaseTime(1)).bind(this)} onContextMenu={(() => this.decreaseTime(10)).bind(this)}>-</button>
-                <button onClick={this.toggle}>{this.state.toggleDisplay}</button>
-                <button disabled={this.state.running} onClick={(() => this.increaseTime(1)).bind(this)} onContextMenu={(() => this.increaseTime(10)).bind(this)}>+</button> */}
+                />                
             </div>
         )   
     }

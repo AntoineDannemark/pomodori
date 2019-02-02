@@ -24702,10 +24702,13 @@ var Button = function Button(_ref) {
   var disabled = _ref.disabled,
       text = _ref.text,
       actionLeft = _ref.actionLeft,
-      actionRight = _ref.actionRight;
+      actionRight = _ref.actionRight,
+      key = _ref.key;
   return _react.default.createElement("div", {
-    className: "button"
+    className: "buttonContainer"
   }, _react.default.createElement("button", {
+    key: key,
+    className: "button",
     disabled: disabled,
     onClick: actionLeft,
     onContextMenu: actionRight
@@ -24747,23 +24750,28 @@ var Controls = function Controls(_ref) {
     className: "controls"
   }, _react.default.createElement(_Button.default, {
     disabled: running,
-    text: "-",
-    actionLeft: decreaseTime().bind(_this, 1),
-    actionRight: decreaseTime().bind(_this, 10)
+    text: "+",
+    actionLeft: increaseTime().bind(_this, 1),
+    actionRight: increaseTime().bind(_this, 10)
   }), _react.default.createElement(_Button.default, {
     text: toggleDisplay,
     actionLeft: toggle()
   }), _react.default.createElement(_Button.default, {
     disabled: running,
-    text: "+",
-    actionLeft: increaseTime().bind(_this, 1),
-    actionRight: increaseTime().bind(_this, 10)
+    text: "-",
+    actionLeft: decreaseTime().bind(_this, 1),
+    actionRight: decreaseTime().bind(_this, 10)
   }));
 };
 
 var _default = Controls;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Button":"src/components/Button.js","./Controls.css":"src/components/Controls.css"}],"src/components/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Button":"src/components/Button.js","./Controls.css":"src/components/Controls.css"}],"src/components/App.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24776,6 +24784,8 @@ var _react = _interopRequireDefault(require("react"));
 var _Timer = _interopRequireDefault(require("./Timer"));
 
 var _Controls = _interopRequireDefault(require("./Controls"));
+
+require("./App.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24797,7 +24807,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-// import './App.css';
 var App =
 /*#__PURE__*/
 function (_React$Component) {
@@ -24815,26 +24824,20 @@ function (_React$Component) {
       seconds: 30,
       running: false,
       toggleDisplay: "Start",
-      digits: [0, 0, 0, 0] // digits: {
-      //     digitOne: 0,
-      //     digitTwo: 0,
-      //     digitThree: 0,
-      //     digitFour: 0,
-      // }
-
+      digits: [0, 0, 0, 0]
     };
-    _this.toggle = _this.toggle.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.countTime = _this.countTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.increaseTime = _this.increaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.decreaseTime = _this.decreaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this))); // this.digits = this.digits.bind(this);
-
+    _this.decreaseTime = _this.decreaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.toggle = _this.toggle.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.formatTime(); // console.log(this.digits.digitOne.value);
+      this.formatTime();
+      console.log(this);
     }
   }, {
     key: "countTime",
@@ -24869,8 +24872,7 @@ function (_React$Component) {
   }, {
     key: "reset",
     value: function reset() {
-      clearInterval(this.interval); // let time = this.format(this.state.time);
-
+      clearInterval(this.interval);
       this.setState({
         running: false,
         time: 1200,
@@ -24948,9 +24950,6 @@ function (_React$Component) {
       });
     }
   }, {
-    key: "handleClick",
-    value: function handleClick() {}
-  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -24981,7 +24980,7 @@ function (_React$Component) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Timer":"src/components/Timer.js","./Controls":"src/components/Controls.js"}],"src/index.css":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Timer":"src/components/Timer.js","./Controls":"src/components/Controls.js","./App.css":"src/components/App.css"}],"src/index.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);

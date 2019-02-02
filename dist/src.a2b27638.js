@@ -24837,7 +24837,6 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.formatTime();
-      console.log(this);
     }
   }, {
     key: "countTime",
@@ -24895,7 +24894,7 @@ function (_React$Component) {
     value: function decreaseTime(min) {
       var ms = min * 60;
       var newTime = 0;
-      this.state.time - ms < 0 ? this.newTime = 0 : this.newTime = this.state.time - ms, this.setState({
+      this.state.time - ms <= 0 ? this.newTime = 60 : this.newTime = this.state.time - ms, this.setState({
         time: this.newTime
       }, function () {
         this.formatTime();
@@ -24955,7 +24954,6 @@ function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log(this);
       return _react.default.createElement("div", {
         className: "appContainer"
       }, _react.default.createElement(_Timer.default, {

@@ -23,7 +23,6 @@ class App extends React.Component {
     
     componentDidMount() {
         this.formatTime();
-        console.log(this);
     }
     
     countTime() {
@@ -74,7 +73,7 @@ class App extends React.Component {
     decreaseTime(min) {
         let ms = min * 60;
         let newTime = 0;
-        (this.state.time - ms < 0) ? this.newTime = 0 : this.newTime = this.state.time - ms,     
+        (this.state.time - ms <= 0) ? this.newTime = 60 : this.newTime = this.state.time - ms,     
         this.setState({
             time: this.newTime,
         }, function() {
@@ -131,7 +130,6 @@ class App extends React.Component {
     }
 
     render() {
-        console.log(this);
         return (
             <div className="appContainer">            
                 <Timer digits={this.state.digits} />               

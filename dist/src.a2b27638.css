@@ -79,7 +79,7 @@
     .controls {
         height: 10%;
         width: 100%;
-        flex-direction: row;
+        flex-direction: row-reverse;
     }
   }
 #app{

@@ -5,8 +5,25 @@
 }
 
 .appContainer {
-    height: 100%;
-    width: 80%;
+    /* background-color: blueviolet; */
+    height: 70%;
+    width: 70%;
+    margin: auto;
     display: flex;
-    /* align-items: center; */
 }
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+    .appContainer {
+        width: 90%;
+        height: 70%;
+        flex-direction: column;
+    }
+  }
+
+/* Small screens */
+@media all and (max-width: 500px) {
+    .appContainer {
+        height: 90%;
+    }
+  }

@@ -13,6 +13,8 @@ class App extends React.Component {
             running: false,
             toggleDisplay: "Start",
             digits: [0, 0, 0, 0],
+            prevVals: [0, 0, 0, 0],
+            nextVals: [0, 0, 0, 0],
             anims:[],
         };
         this.countTime = this.countTime.bind(this);
@@ -22,20 +24,27 @@ class App extends React.Component {
     }
     
     componentDidMount() {
-        this.formatTime();
+        this.setState({
+            time: this.state.time - 1,
+        }, function() {
+            this.formatTime();
+        }, function() {
+            this.populateNeighborVals();    
+        });
     }
     
     countTime() {
-        if (this.state.time === 0) {
-            this.reset();
-        }
-        if (this.state.running === true) {
-            this.setState({
-                time: this.state.time - 1,
-            }, function() {
+        this.setState({
+            time: this.state.time - 1,
+        }, function() {                             
+            if (this.state.time === 0) {
+                this.reset();
+            }
+            if (this.state.running === true) {
                 this.formatTime();
-            });
-        }
+                this.populateNeighborVals();
+            }            
+        });
     }
 
     run() {
@@ -43,7 +52,8 @@ class App extends React.Component {
         this.setState({ 
             running: true, 
             toggleDisplay: "Reset",
-        }, function() {
+        }
+        , function() {
             this.animate();
         });
     }
@@ -142,14 +152,51 @@ class App extends React.Component {
                 this.setState({
                     digits: a,
                 })
-            }
+            }            
+            this.populateNeighborVals();        
         });  
     }
+
+    populateNeighborVals() {
+        let a = this.state.digits.slice();
+        let b = this.state.digits.slice();
+        for (let i = 0; i < 4; i++) {
+            if (this.state.digits[i] > 8) {
+                a[i] = 0;
+                this.setState({
+                    prevVals: a,
+                })
+            } else {
+                a[i] = this.state.digits[i];
+                this.setState({
+                    prevVals: a,
+                })
+            }  
+            if(this.state.digits[i] < 1) {
+                b[i] = 9;
+                this.setState({
+                    nextVals: b,
+                })
+            } else {
+                b[i] = this.state.digits[i];
+                this.setState({
+                    nextVals: b,
+                })
+            }  
+        }
+
+    }
+
 
     render() {
         return (
             <div className="appContainer">            
-                <Timer digits={this.state.digits} anims={this.state.anims}/>               
+                <Timer 
+                    digits={this.state.digits} 
+                    prevVals={this.state.prevVals} 
+                    nextVals={this.state.nextVals}
+                    anims={this.state.anims}
+                />               
                 <Controls 
                     running={this.state.running} 
                     toggleDisplay={this.state.toggleDisplay}

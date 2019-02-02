@@ -7,27 +7,61 @@
     
 }
 
+
 .digit {
     height: 33.33%;
     width:100%;
-    color: white;
-    background-image: radial-gradient(grey, black);
+    /* color: white; */
+    /* background-image: radial-gradient(grey, black); */
     font-size: 17vw;
     justify-content: center;
     align-items: center;
     position: relative;
-    top: -50%;
+    top: -33.33%;
     display: flex;
     overflow: hidden;
-    transform: scale(1, 1);
+    transform: scale(1, 1.8);
 }
 
-@keyframes rollOneSec {
+@keyframes rollOneSecInit {
     from {
         top: -50%;
     }
     to {
         top: 50%;
+    }
+}
+@keyframes rollTenSecInit{
+    from {
+        top: 0%;
+    }
+    to {
+        top: 100%;
+    }
+}
+@keyframes rollOneMinInit {
+    from {
+        top: 0%;
+    }
+    to {
+        top: 100%;
+    }
+}
+@keyframes rollTenMinInit {
+    from {
+        top: 0%;
+    }
+    to {
+        top: 100%;
+    }
+}
+
+@keyframes rollOneSec {
+    from {
+        top: -100%;
+    }
+    to {
+        top: 100%;
     }
 }
 @keyframes rollTenSec {
@@ -56,15 +90,24 @@
 }
 
 .rollOneSec {
-    animation: rollOneSec 1s infinite ease-in-out;
+    animation: 
+        rollOneSec 1s linear infinite;
+        /* rollOneSec 1s linear infinite; */
 }
+
 .rollTenSec {
-    animation: rollTenSec 10s infinite ease-in-out;
+    animation: rollTenSec 10s linear infinite
 }
+
+
+
 .rollOneMin {
-    animation: rollOneMin 60s infinite ease-in-out;
+    animation: rollOneMin 60s linear infinite;
 }
+
+
+
 .rollTenMin {
-    animation: rollTenMin 600s infinite ease-in-out;
+    animation: rollTenMin 600s linear infinite;
 }
 

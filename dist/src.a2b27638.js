@@ -24570,16 +24570,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Digit = function Digit(_ref) {
   var curVal = _ref.curVal,
+      prevVal = _ref.prevVal,
+      nextVal = _ref.nextVal,
       anim = _ref.anim;
   return _react.default.createElement("div", {
     className: "threeDigitsWrapper ".concat(anim)
   }, _react.default.createElement("div", {
+    className: "digitWrapper"
+  }, _react.default.createElement("div", {
     className: "digit"
-  }, curVal - 1), _react.default.createElement("div", {
+  }, prevVal)), _react.default.createElement("div", {
+    className: "digitWrapper"
+  }, _react.default.createElement("div", {
     className: "digit"
-  }, curVal), _react.default.createElement("div", {
+  }, curVal)), _react.default.createElement("div", {
+    className: "digitWrapper"
+  }, _react.default.createElement("div", {
     className: "digit"
-  }, curVal + 1));
+  }, nextVal)));
 };
 
 var _default = Digit;
@@ -24608,16 +24616,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var TwoDigits = function TwoDigits(_ref) {
   var digitOne = _ref.digitOne,
       digitTwo = _ref.digitTwo,
+      prevValOne = _ref.prevValOne,
+      prevValTwo = _ref.prevValTwo,
+      nextValOne = _ref.nextValOne,
+      nextValTwo = _ref.nextValTwo,
       animOne = _ref.animOne,
       animTwo = _ref.animTwo;
   return _react.default.createElement("div", {
     className: "twoDigits"
   }, _react.default.createElement(_Digit.default, {
     anim: animOne,
-    curVal: digitOne
+    prevVal: prevValOne,
+    curVal: digitOne,
+    nextVal: nextValOne
   }), _react.default.createElement(_Digit.default, {
     anim: animTwo,
-    curVal: digitTwo
+    prevVal: prevValTwo,
+    curVal: digitTwo,
+    nextVal: nextValTwo
   }));
 };
 
@@ -24675,17 +24691,27 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Timer = function Timer(_ref) {
   var digits = _ref.digits,
+      prevVals = _ref.prevVals,
+      nextVals = _ref.nextVals,
       anims = _ref.anims;
   return _react.default.createElement("div", {
     className: "timer"
   }, _react.default.createElement(_TwoDigits.default, {
     digitOne: digits[0],
     digitTwo: digits[1],
+    prevValOne: prevVals[0],
+    prevValTwo: prevVals[1],
+    nextValOne: nextVals[0],
+    nextValTwo: nextVals[1],
     animOne: anims[0],
     animTwo: anims[1]
   }), _react.default.createElement(_Separator.default, null), _react.default.createElement(_TwoDigits.default, {
     digitOne: digits[2],
     digitTwo: digits[3],
+    prevValOne: prevVals[2],
+    prevValTwo: prevVals[3],
+    nextValOne: nextVals[2],
+    nextValTwo: nextVals[3],
     animOne: anims[2],
     animTwo: anims[3]
   }));
@@ -24839,6 +24865,8 @@ function (_React$Component) {
       running: false,
       toggleDisplay: "Start",
       digits: [0, 0, 0, 0],
+      prevVals: [0, 0, 0, 0],
+      nextVals: [0, 0, 0, 0],
       anims: []
     };
     _this.countTime = _this.countTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
@@ -24851,22 +24879,29 @@ function (_React$Component) {
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.formatTime();
+      this.setState({
+        time: this.state.time - 1
+      }, function () {
+        this.formatTime();
+      }, function () {
+        this.populateNeighborVals();
+      });
     }
   }, {
     key: "countTime",
     value: function countTime() {
-      if (this.state.time === 0) {
-        this.reset();
-      }
+      this.setState({
+        time: this.state.time - 1
+      }, function () {
+        if (this.state.time === 0) {
+          this.reset();
+        }
 
-      if (this.state.running === true) {
-        this.setState({
-          time: this.state.time - 1
-        }, function () {
+        if (this.state.running === true) {
           this.formatTime();
-        });
-      }
+          this.populateNeighborVals();
+        }
+      });
     }
   }, {
     key: "run",
@@ -24981,7 +25016,41 @@ function (_React$Component) {
             digits: a
           });
         }
+
+        this.populateNeighborVals();
       });
+    }
+  }, {
+    key: "populateNeighborVals",
+    value: function populateNeighborVals() {
+      var a = this.state.digits.slice();
+      var b = this.state.digits.slice();
+
+      for (var i = 0; i < 4; i++) {
+        if (this.state.digits[i] > 8) {
+          a[i] = 0;
+          this.setState({
+            prevVals: a
+          });
+        } else {
+          a[i] = this.state.digits[i];
+          this.setState({
+            prevVals: a
+          });
+        }
+
+        if (this.state.digits[i] < 1) {
+          b[i] = 9;
+          this.setState({
+            nextVals: b
+          });
+        } else {
+          b[i] = this.state.digits[i];
+          this.setState({
+            nextVals: b
+          });
+        }
+      }
     }
   }, {
     key: "render",
@@ -24992,6 +25061,8 @@ function (_React$Component) {
         className: "appContainer"
       }, _react.default.createElement(_Timer.default, {
         digits: this.state.digits,
+        prevVals: this.state.prevVals,
+        nextVals: this.state.nextVals,
         anims: this.state.anims
       }), _react.default.createElement(_Controls.default, {
         running: this.state.running,

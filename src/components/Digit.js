@@ -1,11 +1,17 @@
 import React from 'react';
 import './Digit.css';
 
-const Digit = ({curVal, anim}) => (
+const Digit = ({curVal, prevVal, nextVal, anim}) => (
     <div className={`threeDigitsWrapper ${anim}`}>
-        <div className="digit">{curVal - 1}</div>
-        <div className="digit">{curVal}</div>
-        <div className="digit">{curVal + 1}</div>
+        <div className="digitWrapper">
+            <div className="digit">{prevVal}</div>
+        </div>
+        <div className="digitWrapper">
+            <div className="digit">{curVal}</div>
+        </div>
+        <div className="digitWrapper">
+            <div className="digit">{nextVal}</div>
+        </div>
     </div>
 ) 
 

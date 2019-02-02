@@ -24569,10 +24569,17 @@ require("./Digit.css");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Digit = function Digit(_ref) {
-  var curVal = _ref.curVal;
-  return _react.default.createElement("span", {
+  var curVal = _ref.curVal,
+      anim = _ref.anim;
+  return _react.default.createElement("div", {
+    className: "threeDigitsWrapper ".concat(anim)
+  }, _react.default.createElement("div", {
     className: "digit"
-  }, curVal);
+  }, curVal - 1), _react.default.createElement("div", {
+    className: "digit"
+  }, curVal), _react.default.createElement("div", {
+    className: "digit"
+  }, curVal + 1));
 };
 
 var _default = Digit;
@@ -24600,14 +24607,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var TwoDigits = function TwoDigits(_ref) {
   var digitOne = _ref.digitOne,
-      digitTwo = _ref.digitTwo;
+      digitTwo = _ref.digitTwo,
+      animOne = _ref.animOne,
+      animTwo = _ref.animTwo;
   return _react.default.createElement("div", {
     className: "twoDigits"
   }, _react.default.createElement(_Digit.default, {
-    className: "digit",
+    anim: animOne,
     curVal: digitOne
   }), _react.default.createElement(_Digit.default, {
-    className: "digit",
+    anim: animTwo,
     curVal: digitTwo
   }));
 };
@@ -24665,15 +24674,20 @@ require("./Timer.css");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Timer = function Timer(_ref) {
-  var digits = _ref.digits;
+  var digits = _ref.digits,
+      anims = _ref.anims;
   return _react.default.createElement("div", {
     className: "timer"
   }, _react.default.createElement(_TwoDigits.default, {
     digitOne: digits[0],
-    digitTwo: digits[1]
+    digitTwo: digits[1],
+    animOne: anims[0],
+    animTwo: anims[1]
   }), _react.default.createElement(_Separator.default, null), _react.default.createElement(_TwoDigits.default, {
     digitOne: digits[2],
-    digitTwo: digits[3]
+    digitTwo: digits[3],
+    animOne: anims[2],
+    animTwo: anims[3]
   }));
 };
 
@@ -24824,7 +24838,8 @@ function (_React$Component) {
       seconds: 30,
       running: false,
       toggleDisplay: "Start",
-      digits: [0, 0, 0, 0]
+      digits: [0, 0, 0, 0],
+      anims: []
     };
     _this.countTime = _this.countTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.increaseTime = _this.increaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
@@ -24860,6 +24875,8 @@ function (_React$Component) {
       this.setState({
         running: true,
         toggleDisplay: "Reset"
+      }, function () {
+        this.animate();
       });
     }
   }, {
@@ -24867,6 +24884,22 @@ function (_React$Component) {
     value: function restartTimer() {
       clearInterval(this.timerID);
       this.timerID = setInterval(this.countTime, 1000);
+    }
+  }, {
+    key: "animate",
+    value: function animate() {
+      var newAnims = ['rollTenMin', 'rollOneMin', 'rollTenSec', 'rollOneSec'];
+      this.setState({
+        anims: newAnims
+      });
+    }
+  }, {
+    key: "clearAnimations",
+    value: function clearAnimations() {
+      var newAnims = [];
+      this.setState({
+        anims: newAnims
+      });
     }
   }, {
     key: "reset",
@@ -24878,6 +24911,7 @@ function (_React$Component) {
         toggleDisplay: "Start"
       }, function () {
         this.formatTime();
+        this.clearAnimations();
       });
     }
   }, {
@@ -24957,7 +24991,8 @@ function (_React$Component) {
       return _react.default.createElement("div", {
         className: "appContainer"
       }, _react.default.createElement(_Timer.default, {
-        digits: this.state.digits
+        digits: this.state.digits,
+        anims: this.state.anims
       }), _react.default.createElement(_Controls.default, {
         running: this.state.running,
         toggleDisplay: this.state.toggleDisplay,
@@ -25025,7 +25060,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44353" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43969" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

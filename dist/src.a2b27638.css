@@ -1,18 +1,88 @@
+.threeDigitsWrapper {
+    width: 100%;
+    height: 300%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    
+}
+
 .digit {
-    /* height: 100%; */
-    width: 50%;
-    /* background-color: brown; */
+    height: 33.33%;
+    width:100%;
+    color: white;
+    background-image: radial-gradient(grey, black);
     font-size: 17vw;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: -50%;
     display: flex;
+    overflow: hidden;
+    transform: scale(1, 1);
 }
+
+@keyframes rollOneSec {
+    from {
+        top: -50%;
+    }
+    to {
+        top: 50%;
+    }
+}
+@keyframes rollTenSec {
+    from {
+        top: -50%;
+    }
+    to {
+        top: 50%;
+    }
+}
+@keyframes rollOneMin {
+    from {
+        top: -50%;
+    }
+    to {
+        top: 50%;
+    }
+}
+@keyframes rollTenMin {
+    from {
+        top: -50%;
+    }
+    to {
+        top: 50%;
+    }
+}
+
+.rollOneSec {
+    animation: rollOneSec 1s infinite ease-in-out;
+}
+.rollTenSec {
+    animation: rollTenSec 10s infinite ease-in-out;
+}
+.rollOneMin {
+    animation: rollOneMin 60s infinite ease-in-out;
+}
+.rollTenMin {
+    animation: rollTenMin 600s infinite ease-in-out;
+}
+
 .twoDigits {
     width: 45%;
     height: 100%;
     display: flex;
+    overflow: hidden;
 }
-.Separator {
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+    .twoDigits {
+        height: 45%;
+        width: 100%;
+        flex-direction: row;
+    }
+  }.Separator {
     height: 100%;
     width: 10%;
     background-color: aquamarine;
@@ -22,13 +92,15 @@
     align-items: center;
     display: flex;
 }
-  /* Small screens */
-@media all and (max-width: 500px) {
+
+/* Medium screens */
+@media all and (max-width: 800px) {
     .Separator {
         visibility: hidden;
         height: 0%;
     }
-}.timer {
+}
+.timer {
     height: 100%;
     width: 90%;
     border: 1px solid grey;
@@ -43,7 +115,7 @@
     .timer {
         height: 90%;
         width: 100%;
-        flex-direction: row;
+        flex-direction: column;
     }
   }
 

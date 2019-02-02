@@ -2,4 +2,14 @@
     width: 45%;
     height: 100%;
     display: flex;
+    overflow: hidden;
 }
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+    .twoDigits {
+        height: 45%;
+        width: 100%;
+        flex-direction: row;
+    }
+  }

@@ -13,7 +13,7 @@ class App extends React.Component {
             running: false,
             toggleDisplay: "Start",
             digits: [0, 0, 0, 0],
-
+            anims:[],
         };
         this.countTime = this.countTime.bind(this);
         this.increaseTime = this.increaseTime.bind(this);
@@ -39,16 +39,32 @@ class App extends React.Component {
     }
 
     run() {
-        this.restartTimer();
+        this.restartTimer();        
         this.setState({ 
             running: true, 
             toggleDisplay: "Reset",
+        }, function() {
+            this.animate();
         });
-      }
+    }
 
     restartTimer() {
         clearInterval(this.timerID);
         this.timerID = setInterval(this.countTime, 1000);
+    }
+
+    animate() {
+        let newAnims =  ['rollTenMin', 'rollOneMin', 'rollTenSec', 'rollOneSec'];
+        this.setState({
+            anims: newAnims,
+        });
+    }
+
+    clearAnimations() {
+        let newAnims =  [];
+        this.setState({
+            anims: newAnims,
+        });
     }
 
     reset() {
@@ -59,6 +75,7 @@ class App extends React.Component {
             toggleDisplay: "Start",
         }, function() {
             this.formatTime();
+            this.clearAnimations();
         });
     }
 
@@ -132,7 +149,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="appContainer">            
-                <Timer digits={this.state.digits} />               
+                <Timer digits={this.state.digits} anims={this.state.anims}/>               
                 <Controls 
                     running={this.state.running} 
                     toggleDisplay={this.state.toggleDisplay}

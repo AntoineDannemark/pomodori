@@ -13,7 +13,7 @@
     .timer {
         height: 90%;
         width: 100%;
-        flex-direction: row;
+        flex-direction: column;
     }
   }
 

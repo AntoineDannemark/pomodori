@@ -3,11 +3,21 @@ import TwoDigits from './TwoDigits';
 import Separator from './Separator';
 import './Timer.css';
 
-const Timer = ({digits}) => (
+const Timer = ({digits, anims}) => (
     <div className="timer">
-            <TwoDigits digitOne={digits[0]} digitTwo={digits[1]}/>         
+            <TwoDigits 
+                digitOne={digits[0]} 
+                digitTwo={digits[1]}
+                animOne={anims[0]}
+                animTwo={anims[1]}
+            />         
             <Separator />
-            <TwoDigits digitOne={digits[2]} digitTwo={digits[3]}/>    
+            <TwoDigits 
+                digitOne={digits[2]} 
+                digitTwo={digits[3]}
+                animOne={anims[2]}
+                animTwo={anims[3]}
+            />    
     </div>
 )
 

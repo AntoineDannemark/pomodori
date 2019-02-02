@@ -1,9 +1,70 @@
+.threeDigitsWrapper {
+    width: 100%;
+    height: 300%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    
+}
+
 .digit {
-    /* height: 100%; */
-    width: 50%;
-    /* background-color: brown; */
+    height: 33.33%;
+    width:100%;
+    color: white;
+    background-image: radial-gradient(grey, black);
     font-size: 17vw;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: -50%;
     display: flex;
+    overflow: hidden;
+    transform: scale(1, 1);
 }
+
+@keyframes rollOneSec {
+    from {
+        top: -50%;
+    }
+    to {
+        top: 50%;
+    }
+}
+@keyframes rollTenSec {
+    from {
+        top: -50%;
+    }
+    to {
+        top: 50%;
+    }
+}
+@keyframes rollOneMin {
+    from {
+        top: -50%;
+    }
+    to {
+        top: 50%;
+    }
+}
+@keyframes rollTenMin {
+    from {
+        top: -50%;
+    }
+    to {
+        top: 50%;
+    }
+}
+
+.rollOneSec {
+    animation: rollOneSec 1s infinite ease-in-out;
+}
+.rollTenSec {
+    animation: rollTenSec 10s infinite ease-in-out;
+}
+.rollOneMin {
+    animation: rollOneMin 60s infinite ease-in-out;
+}
+.rollTenMin {
+    animation: rollTenMin 600s infinite ease-in-out;
+}
+

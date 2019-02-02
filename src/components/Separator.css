@@ -8,8 +8,9 @@
     align-items: center;
     display: flex;
 }
-  /* Small screens */
-@media all and (max-width: 500px) {
+
+/* Medium screens */
+@media all and (max-width: 800px) {
     .Separator {
         visibility: hidden;
         height: 0%;

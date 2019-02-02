@@ -1,0 +1,77 @@
+.digit {
+    /* height: 100%; */
+    width: 50%;
+    /* background-color: brown; */
+    font-size: 17vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.twoDigits {
+    width: 45%;
+    height: 100%;
+    display: flex;
+}
+.Separator {
+    height: 100%;
+    width: 10%;
+    background-color: aquamarine;
+    font-size: 17vw;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+  /* Small screens */
+@media all and (max-width: 500px) {
+    .Separator {
+        visibility: hidden;
+        height: 0%;
+    }
+}.timer {
+    height: 100%;
+    width: 80%;
+    border: 1px solid grey;
+    margin: 0;
+    display: flex;
+    text-align: center;
+    /* overflow: hidden; */
+}
+
+.controls {
+    width: 20%;
+    height: 100%;
+    background-color: yellow;
+    margin: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+    .controls {
+        height: 20%;
+        width: 100%;
+        flex-direction: row;
+    }
+  }
+html,body, #header, #app, #footer {
+    width: 100%;
+}
+
+html,body {
+    height: 100%;
+}
+
+#header {
+    height: 15%;
+}
+
+#app {
+    height: 70%;
+}
+
+#footer {
+    height: 17%;
+}

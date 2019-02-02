@@ -1,4 +1,7 @@
 import React from "react";
+import Timer from './Timer'
+import Controls from './Controls';
+// import './App.css';
 
 class App extends React.Component {
     constructor(props) {
@@ -9,19 +12,24 @@ class App extends React.Component {
             seconds: 30,
             running: false,
             toggleDisplay: "Start",
-            digitOne: "1",
-            digitTwo: "2",
-            digitThree: "3",
-            digitFour: "4",
+            digits: [0, 0, 0, 0],
+            // digits: {
+            //     digitOne: 0,
+            //     digitTwo: 0,
+            //     digitThree: 0,
+            //     digitFour: 0,
+            // }
         };
         this.toggle = this.toggle.bind(this);
         this.countTime = this.countTime.bind(this);
         this.increaseTime = this.increaseTime.bind(this);
         this.decreaseTime = this.decreaseTime.bind(this);
+        // this.digits = this.digits.bind(this);
     }
     
     componentDidMount() {
         this.formatTime();
+        // console.log(this.digits.digitOne.value);
     }
     
     countTime() {
@@ -73,7 +81,7 @@ class App extends React.Component {
     decreaseTime(min) {
         let ms = min * 60;
         let newTime = 0;
-        (this.state.time - ms <= 0) ? this.newTime = 0 : this.newTime = this.state.time - ms,     
+        (this.state.time - ms < 0) ? this.newTime = 0 : this.newTime = this.state.time - ms,     
         this.setState({
             time: this.newTime,
         }, function() {
@@ -95,41 +103,57 @@ class App extends React.Component {
             minutes: Math.floor(this.state.time / 60),
             seconds: this.state.time % 60,
         }, function() {
+            let a = this.state.digits.slice();
+            
             if (this.state.minutes < 10) {
+                a[0] = 0; 
+                a[1] = this.state.minutes;
                 this.setState({
-                    digitOne: 0,
-                    digitTwo: this.state.minutes,
-                });
+                    digits: a,
+                })
             } else {
+                a[0] = parseInt(this.state.minutes.toString().split('')[0]);
+                a[1] = parseInt(this.state.minutes.toString().split('')[1]);
                 this.setState({
-                    digitOne: parseInt(this.state.minutes.toString().split('')[0]),
-                    digitTwo: parseInt(this.state.minutes.toString().split('')[1]),
-                });
+                    digits: a,
+                })
             }
             
             if (this.state.seconds < 10) {
+                a[2] = 0;
+                a[3] = parseInt(this.state.seconds);
                 this.setState({
-                    digitThree: 0,
-                    digitFour: parseInt(this.state.seconds),
-                }) 
+                    digits: a,
+                })
             } else {
+                a[2] = parseInt(this.state.seconds.toString().split('')[0]);
+                a[3] = parseInt(this.state.seconds.toString().split('')[1]);
                 this.setState({
-                    digitThree: parseInt(this.state.seconds.toString().split('')[0]),
-                    digitFour: parseInt(this.state.seconds.toString().split('')[1]),
+                    digits: a,
                 })
             }
         });  
     }
 
+    handleClick() {
+
+    }
+
     render() {
+        console.log(this);
         return (
-            <div>
-                <div className="container">
-                    <h1>{this.state.digitOne}{this.state.digitTwo} : {this.state.digitThree}{this.state.digitFour}</h1>
-                    <button disabled={this.state.running} onClick={() => this.decreaseTime(1)} onContextMenu={() => this.decreaseTime(10)}>-</button>
-                    <button onClick={this.toggle}>{this.state.toggleDisplay}</button>
-                    <button disabled={this.state.running} onClick={() => this.increaseTime(1)} onContextMenu={() => this.increaseTime(10)}>+</button>
-                </div>
+            <div className="appContainer">            
+                <Timer digits={this.state.digits} />               
+                <Controls 
+                    running={this.state.running} 
+                    toggleDisplay={this.state.toggleDisplay}
+                    toggle={() => this.toggle}
+                    increaseTime={() => this.increaseTime}
+                    decreaseTime={() => this.decreaseTime}
+                />
+                {/* <button disabled={this.state.running} onClick={(() => this.decreaseTime(1)).bind(this)} onContextMenu={(() => this.decreaseTime(10)).bind(this)}>-</button>
+                <button onClick={this.toggle}>{this.state.toggleDisplay}</button>
+                <button disabled={this.state.running} onClick={(() => this.increaseTime(1)).bind(this)} onContextMenu={(() => this.increaseTime(10)).bind(this)}>+</button> */}
             </div>
         )   
     }

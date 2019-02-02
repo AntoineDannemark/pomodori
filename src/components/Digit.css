@@ -1,0 +1,9 @@
+.digit {
+    /* height: 100%; */
+    width: 50%;
+    /* background-color: brown; */
+    font-size: 17vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}

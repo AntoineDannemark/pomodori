@@ -1,0 +1,17 @@
+.Separator {
+    height: 100%;
+    width: 10%;
+    background-color: aquamarine;
+    font-size: 17vw;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+  /* Small screens */
+@media all and (max-width: 500px) {
+    .Separator {
+        visibility: hidden;
+        height: 0%;
+    }
+}

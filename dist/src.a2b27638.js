@@ -24482,7 +24482,79 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/components/App.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/components/Digit.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Digit.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24491,6 +24563,219 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+require("./Digit.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Digit = function Digit(_ref) {
+  var curVal = _ref.curVal;
+  return _react.default.createElement("span", {
+    className: "digit"
+  }, curVal);
+};
+
+var _default = Digit;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./Digit.css":"src/components/Digit.css"}],"src/components/TwoDigits.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/TwoDigits.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Digit = _interopRequireDefault(require("./Digit"));
+
+require("./TwoDigits.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var TwoDigits = function TwoDigits(_ref) {
+  var digitOne = _ref.digitOne,
+      digitTwo = _ref.digitTwo;
+  return _react.default.createElement("div", {
+    className: "twoDigits"
+  }, _react.default.createElement(_Digit.default, {
+    className: "digit",
+    curVal: digitOne
+  }), _react.default.createElement(_Digit.default, {
+    className: "digit",
+    curVal: digitTwo
+  }));
+};
+
+var _default = TwoDigits;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./Digit":"src/components/Digit.js","./TwoDigits.css":"src/components/TwoDigits.css"}],"src/components/Separator.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Separator.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+require("./Separator.css");
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+var Separator = function Separator() {
+  return _react.default.createElement("span", {
+    className: "Separator"
+  }, " : ");
+};
+
+var _default = Separator;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./Separator.css":"src/components/Separator.css"}],"src/components/Timer.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Timer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _TwoDigits = _interopRequireDefault(require("./TwoDigits"));
+
+var _Separator = _interopRequireDefault(require("./Separator"));
+
+require("./Timer.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Timer = function Timer(_ref) {
+  var digits = _ref.digits;
+  return _react.default.createElement("div", {
+    className: "timer"
+  }, _react.default.createElement(_TwoDigits.default, {
+    digitOne: digits[0],
+    digitTwo: digits[1]
+  }), _react.default.createElement(_Separator.default, null), _react.default.createElement(_TwoDigits.default, {
+    digitOne: digits[2],
+    digitTwo: digits[3]
+  }));
+};
+
+var _default = Timer;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./TwoDigits":"src/components/TwoDigits.js","./Separator":"src/components/Separator.js","./Timer.css":"src/components/Timer.css"}],"src/components/Button.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Button.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./Button.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Button = function Button(_ref) {
+  var disabled = _ref.disabled,
+      text = _ref.text,
+      actionLeft = _ref.actionLeft,
+      actionRight = _ref.actionRight;
+  return _react.default.createElement("div", {
+    className: "button"
+  }, _react.default.createElement("button", {
+    disabled: disabled,
+    onClick: actionLeft,
+    onContextMenu: actionRight
+  }, text));
+};
+
+var _default = Button;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./Button.css":"src/components/Button.css"}],"src/components/Controls.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Controls.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Button = _interopRequireDefault(require("./Button"));
+
+require("./Controls.css");
+
+var _this = void 0;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Controls = function Controls(_ref) {
+  var running = _ref.running,
+      toggleDisplay = _ref.toggleDisplay,
+      increaseTime = _ref.increaseTime,
+      decreaseTime = _ref.decreaseTime,
+      toggle = _ref.toggle;
+  return _react.default.createElement("div", {
+    className: "controls"
+  }, _react.default.createElement(_Button.default, {
+    disabled: running,
+    text: "-",
+    actionLeft: decreaseTime().bind(_this, 1),
+    actionRight: decreaseTime().bind(_this, 10)
+  }), _react.default.createElement(_Button.default, {
+    text: toggleDisplay,
+    actionLeft: toggle()
+  }), _react.default.createElement(_Button.default, {
+    disabled: running,
+    text: "+",
+    actionLeft: increaseTime().bind(_this, 1),
+    actionRight: increaseTime().bind(_this, 10)
+  }));
+};
+
+var _default = Controls;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./Button":"src/components/Button.js","./Controls.css":"src/components/Controls.css"}],"src/components/App.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Timer = _interopRequireDefault(require("./Timer"));
+
+var _Controls = _interopRequireDefault(require("./Controls"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24512,6 +24797,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+// import './App.css';
 var App =
 /*#__PURE__*/
 function (_React$Component) {
@@ -24529,22 +24815,26 @@ function (_React$Component) {
       seconds: 30,
       running: false,
       toggleDisplay: "Start",
-      digitOne: "1",
-      digitTwo: "2",
-      digitThree: "3",
-      digitFour: "4"
+      digits: [0, 0, 0, 0] // digits: {
+      //     digitOne: 0,
+      //     digitTwo: 0,
+      //     digitThree: 0,
+      //     digitFour: 0,
+      // }
+
     };
     _this.toggle = _this.toggle.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.countTime = _this.countTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.increaseTime = _this.increaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.decreaseTime = _this.decreaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.decreaseTime = _this.decreaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this))); // this.digits = this.digits.bind(this);
+
     return _this;
   }
 
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.formatTime();
+      this.formatTime(); // console.log(this.digits.digitOne.value);
     }
   }, {
     key: "countTime",
@@ -24603,7 +24893,7 @@ function (_React$Component) {
     value: function decreaseTime(min) {
       var ms = min * 60;
       var newTime = 0;
-      this.state.time - ms <= 0 ? this.newTime = 0 : this.newTime = this.state.time - ms, this.setState({
+      this.state.time - ms < 0 ? this.newTime = 0 : this.newTime = this.state.time - ms, this.setState({
         time: this.newTime
       }, function () {
         this.formatTime();
@@ -24626,57 +24916,63 @@ function (_React$Component) {
         minutes: Math.floor(this.state.time / 60),
         seconds: this.state.time % 60
       }, function () {
+        var a = this.state.digits.slice();
+
         if (this.state.minutes < 10) {
+          a[0] = 0;
+          a[1] = this.state.minutes;
           this.setState({
-            digitOne: 0,
-            digitTwo: this.state.minutes
+            digits: a
           });
         } else {
+          a[0] = parseInt(this.state.minutes.toString().split('')[0]);
+          a[1] = parseInt(this.state.minutes.toString().split('')[1]);
           this.setState({
-            digitOne: parseInt(this.state.minutes.toString().split('')[0]),
-            digitTwo: parseInt(this.state.minutes.toString().split('')[1])
+            digits: a
           });
         }
 
         if (this.state.seconds < 10) {
+          a[2] = 0;
+          a[3] = parseInt(this.state.seconds);
           this.setState({
-            digitThree: 0,
-            digitFour: parseInt(this.state.seconds)
+            digits: a
           });
         } else {
+          a[2] = parseInt(this.state.seconds.toString().split('')[0]);
+          a[3] = parseInt(this.state.seconds.toString().split('')[1]);
           this.setState({
-            digitThree: parseInt(this.state.seconds.toString().split('')[0]),
-            digitFour: parseInt(this.state.seconds.toString().split('')[1])
+            digits: a
           });
         }
       });
     }
   }, {
+    key: "handleClick",
+    value: function handleClick() {}
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      return _react.default.createElement("div", null, _react.default.createElement("div", {
-        className: "container"
-      }, _react.default.createElement("h1", null, this.state.digitOne, this.state.digitTwo, " : ", this.state.digitThree, this.state.digitFour), _react.default.createElement("button", {
-        disabled: this.state.running,
-        onClick: function onClick() {
-          return _this2.decreaseTime(1);
+      console.log(this);
+      return _react.default.createElement("div", {
+        className: "appContainer"
+      }, _react.default.createElement(_Timer.default, {
+        digits: this.state.digits
+      }), _react.default.createElement(_Controls.default, {
+        running: this.state.running,
+        toggleDisplay: this.state.toggleDisplay,
+        toggle: function toggle() {
+          return _this2.toggle;
         },
-        onContextMenu: function onContextMenu() {
-          return _this2.decreaseTime(10);
-        }
-      }, "-"), _react.default.createElement("button", {
-        onClick: this.toggle
-      }, this.state.toggleDisplay), _react.default.createElement("button", {
-        disabled: this.state.running,
-        onClick: function onClick() {
-          return _this2.increaseTime(1);
+        increaseTime: function increaseTime() {
+          return _this2.increaseTime;
         },
-        onContextMenu: function onContextMenu() {
-          return _this2.increaseTime(10);
+        decreaseTime: function decreaseTime() {
+          return _this2.decreaseTime;
         }
-      }, "+")));
+      }));
     }
   }]);
 
@@ -24685,7 +24981,12 @@ function (_React$Component) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"src/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Timer":"src/components/Timer.js","./Controls":"src/components/Controls.js"}],"src/index.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -24694,10 +24995,12 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _App = _interopRequireDefault(require("./components/App"));
 
+require("./index.css");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _reactDom.default.render(_react.default.createElement(_App.default, null), document.getElementById('app'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/App":"src/components/App.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/App":"src/components/App.js","./index.css":"src/index.css"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -24724,7 +25027,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46373" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44353" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

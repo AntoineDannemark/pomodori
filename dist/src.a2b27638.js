@@ -24936,24 +24936,15 @@ function (_React$Component) {
       minutes: 20,
       seconds: 30,
       running: false,
-<<<<<<< HEAD
-      toggleDisplay: "Start",
-      digits: [0, 0, 0, 0],
-      prevVals: [0, 0, 0, 0],
-      nextVals: [0, 0, 0, 0],
-      anims: []
-=======
       toggleDisplay: "START",
       digits: [0, 0, 0, 0],
       modalStatus: ''
->>>>>>> noAnim
     };
     _this.countTime = _this.countTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.increaseTime = _this.increaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.decreaseTime = _this.decreaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.toggle = _this.toggle.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.closeModal = _this.closeModal.bind(_assertThisInitialized(_assertThisInitialized(_this))); // this
-
+    _this.closeModal = _this.closeModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -24964,32 +24955,23 @@ function (_React$Component) {
         time: this.state.time - 1
       }, function () {
         this.formatTime();
-      }, function () {
-        this.populateNeighborVals();
       });
     }
   }, {
     key: "countTime",
     value: function countTime() {
-<<<<<<< HEAD
-      this.setState({
-        time: this.state.time - 1
-      }, function () {
-        if (this.state.time === 0) {
-          this.reset();
-        }
-=======
       if (this.state.time === 0) {
         this.reset();
         this.displayModal();
       }
->>>>>>> noAnim
 
-        if (this.state.running === true) {
+      if (this.state.running === true) {
+        this.setState({
+          time: this.state.time - 1
+        }, function () {
           this.formatTime();
-          this.populateNeighborVals();
-        }
-      });
+        });
+      }
     }
   }, {
     key: "run",
@@ -24997,13 +24979,7 @@ function (_React$Component) {
       this.restartTimer();
       this.setState({
         running: true,
-<<<<<<< HEAD
-        toggleDisplay: "Reset"
-      }, function () {
-        this.animate();
-=======
         toggleDisplay: "RESET"
->>>>>>> noAnim
       });
     }
   }, {
@@ -25114,38 +25090,6 @@ function (_React$Component) {
       });
     }
   }, {
-<<<<<<< HEAD
-    key: "populateNeighborVals",
-    value: function populateNeighborVals() {
-      var a = this.state.digits.slice();
-      var b = this.state.digits.slice();
-
-      for (var i = 0; i < 4; i++) {
-        if (this.state.digits[i] > 8) {
-          a[i] = 0;
-          this.setState({
-            prevVals: a
-          });
-        } else {
-          a[i] = this.state.digits[i];
-          this.setState({
-            prevVals: a
-          });
-        }
-
-        if (this.state.digits[i] < 1) {
-          b[i] = 9;
-          this.setState({
-            nextVals: b
-          });
-        } else {
-          b[i] = this.state.digits[i];
-          this.setState({
-            nextVals: b
-          });
-        }
-      }
-=======
     key: "displayModal",
     value: function displayModal() {
       this.setState({
@@ -25158,7 +25102,6 @@ function (_React$Component) {
       this.setState({
         modalStatus: ''
       });
->>>>>>> noAnim
     }
   }, {
     key: "render",
@@ -25170,10 +25113,7 @@ function (_React$Component) {
       }, _react.default.createElement("div", {
         className: "clock"
       }, _react.default.createElement(_Timer.default, {
-        digits: this.state.digits,
-        prevVals: this.state.prevVals,
-        nextVals: this.state.nextVals,
-        anims: this.state.anims
+        digits: this.state.digits
       }), _react.default.createElement(_Controls.default, {
         running: this.state.running,
         toggleDisplay: this.state.toggleDisplay,
@@ -25249,15 +25189,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46603" + '/');
-=======
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42671" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36653" + '/');
->>>>>>> noAnim
->>>>>>> cbdd298cb136f10cbb5d67b0ca407fe82ea68138
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35849" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

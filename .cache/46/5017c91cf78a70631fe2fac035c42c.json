@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"id":"src/fonts/dsDigital/DS-DIGI.TTF","dependencies":[{"name":"/home/antoine/Desktop/becode/React/pomodori/.babelrc","includedInParent":true,"mtime":1548948273792},{"name":"/home/antoine/Desktop/becode/React/pomodori/package.json","includedInParent":true,"mtime":1549233835237}],"generated":{"js":"module.exports = \"/6ceb1bc210838d6df057a7a7e05373d7.TTF\";"},"hash":"63f874d192fb3892d88d5e26f942b5e2","cacheData":{"env":{}}}
-=======
-{"id":"src/fonts/dsDigital/DS-DIGI.TTF","dependencies":[{"name":"/home/antoine/Desktop/becode/React/pomodori/.babelrc","includedInParent":true,"mtime":1548948273792},{"name":"/home/antoine/Desktop/becode/React/pomodori/package.json","includedInParent":true,"mtime":1549233058835}],"generated":{"js":"module.exports = \"/6ceb1bc210838d6df057a7a7e05373d7.TTF\";"},"hash":"63f874d192fb3892d88d5e26f942b5e2","cacheData":{"env":{}}}
->>>>>>> cbdd298cb136f10cbb5d67b0ca407fe82ea68138
+{"id":"src/fonts/dsDigital/DS-DIGI.TTF","dependencies":[{"name":"/home/antoine/Desktop/becode/React/pomodori/.babelrc","includedInParent":true,"mtime":1548948273792},{"name":"/home/antoine/Desktop/becode/React/pomodori/package.json","includedInParent":true,"mtime":1549235073566}],"generated":{"js":"module.exports = \"/6ceb1bc210838d6df057a7a7e05373d7.TTF\";"},"hash":"63f874d192fb3892d88d5e26f942b5e2","cacheData":{"env":{}}}

@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"id":"src/img/alarmBtnClean.png","dependencies":[{"name":"/home/antoine/Desktop/becode/React/pomodori/.babelrc","includedInParent":true,"mtime":1548948273792},{"name":"/home/antoine/Desktop/becode/React/pomodori/package.json","includedInParent":true,"mtime":1549233835237}],"generated":{"js":"module.exports = \"/b7aaf5822627a1cc78d1d8dcfaa1b935.png\";"},"hash":"7f79221897d2954f09c5b97a6f451ee6","cacheData":{"env":{}}}
-=======
-{"id":"src/img/alarmBtnClean.png","dependencies":[{"name":"/home/antoine/Desktop/becode/React/pomodori/.babelrc","includedInParent":true,"mtime":1548948273792},{"name":"/home/antoine/Desktop/becode/React/pomodori/package.json","includedInParent":true,"mtime":1549233058835}],"generated":{"js":"module.exports = \"/b7aaf5822627a1cc78d1d8dcfaa1b935.png\";"},"hash":"7f79221897d2954f09c5b97a6f451ee6","cacheData":{"env":{}}}
->>>>>>> cbdd298cb136f10cbb5d67b0ca407fe82ea68138
+{"id":"src/img/alarmBtnClean.png","dependencies":[{"name":"/home/antoine/Desktop/becode/React/pomodori/.babelrc","includedInParent":true,"mtime":1548948273792},{"name":"/home/antoine/Desktop/becode/React/pomodori/package.json","includedInParent":true,"mtime":1549235073566}],"generated":{"js":"module.exports = \"/b7aaf5822627a1cc78d1d8dcfaa1b935.png\";"},"hash":"7f79221897d2954f09c5b97a6f451ee6","cacheData":{"env":{}}}

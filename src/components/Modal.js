@@ -5,10 +5,15 @@ import 'bulma/css/bulma.css';
 const Modal = ({modalStatus, closeModal, toggle}) => (
     <div className={`modal ${modalStatus}`}>
         <div className="modal-background"></div>
-        <div className="modal-content">
-            <button onClick={toggle()} className="is-large">YOYO</button>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title is-large"><strong>..Time for a break !</strong></p>
+                <button onClick={closeModal()} className="delete is-large"  aria-label="close"></button>
+            </header>
+            <section class="modal-card-body has-text-centered">
+                <button className="button is-primary is-inverted is-large " onClick={toggle()} >Restart Timer</button>      
+            </section>   
         </div>
-        <button onClick={closeModal()} className="modal-close is-large" aria-label="close"></button>
     </div>
 )
 

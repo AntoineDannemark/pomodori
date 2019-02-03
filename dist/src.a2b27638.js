@@ -24811,15 +24811,21 @@ var Modal = function Modal(_ref) {
   }, _react.default.createElement("div", {
     className: "modal-background"
   }), _react.default.createElement("div", {
-    className: "modal-content"
-  }, _react.default.createElement("button", {
-    onClick: toggle(),
-    className: "is-large"
-  }, "YOYO")), _react.default.createElement("button", {
+    "class": "modal-card"
+  }, _react.default.createElement("header", {
+    "class": "modal-card-head"
+  }, _react.default.createElement("p", {
+    "class": "modal-card-title is-large"
+  }, _react.default.createElement("strong", null, "..Time for a break !")), _react.default.createElement("button", {
     onClick: closeModal(),
-    className: "modal-close is-large",
+    className: "delete is-large",
     "aria-label": "close"
-  }));
+  })), _react.default.createElement("section", {
+    "class": "modal-card-body has-text-centered"
+  }, _react.default.createElement("button", {
+    className: "button is-primary is-inverted is-large ",
+    onClick: toggle()
+  }, "Restart Timer"))));
 };
 
 var _default = Modal;

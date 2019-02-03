@@ -1,5 +1,11 @@
-.modal {
-    width: 70%;
-    height: 70%;
+.modal-content {
+    width: 20%;
+    height: 20%;
     position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.restartBtn{
+
 }

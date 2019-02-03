@@ -22,11 +22,14 @@ class App extends React.Component {
         this.decreaseTime = this.decreaseTime.bind(this);
         this.toggle = this.toggle.bind(this);
         this.closeModal = this.closeModal.bind(this);
-        // this
     }
     
     componentDidMount() {
-        this.formatTime();
+        this.setState({
+            time: this.state.time - 1,
+        }, function() {
+            this.formatTime();
+        });
     }
     
     countTime() {
@@ -39,22 +42,36 @@ class App extends React.Component {
                 time: this.state.time - 1,
             }, function() {
                 this.formatTime();
-            });
+            });            
         }
     }
 
     run() {
-        this.restartTimer();
+        this.restartTimer();        
         this.setState({ 
             running: true, 
             toggleDisplay: "RESET",
         });
-      }
+    }
 
     restartTimer() {
         this.closeModal();
         clearInterval(this.timerID);
         this.timerID = setInterval(this.countTime, 1000);
+    }
+
+    animate() {
+        let newAnims =  ['rollTenMin', 'rollOneMin', 'rollTenSec', 'rollOneSec'];
+        this.setState({
+            anims: newAnims,
+        });
+    }
+
+    clearAnimations() {
+        let newAnims =  [];
+        this.setState({
+            anims: newAnims,
+        });
     }
 
     reset() {
@@ -65,6 +82,7 @@ class App extends React.Component {
             toggleDisplay: "START",
         }, function() {
             this.formatTime();
+            this.clearAnimations();
         });
     }
 
@@ -131,7 +149,8 @@ class App extends React.Component {
                 this.setState({
                     digits: a,
                 })
-            }
+            }            
+            this.populateNeighborVals();        
         });  
     }
 

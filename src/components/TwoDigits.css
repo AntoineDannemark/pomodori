@@ -4,3 +4,12 @@
     display: flex;
     position: relative;
 }
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+    .twoDigits {
+        height: 45%;
+        width: 100%;
+        flex-direction: row;
+    }
+  }

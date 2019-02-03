@@ -24811,17 +24811,17 @@ var Modal = function Modal(_ref) {
   }, _react.default.createElement("div", {
     className: "modal-background"
   }), _react.default.createElement("div", {
-    "class": "modal-card"
+    className: "modal-card"
   }, _react.default.createElement("header", {
-    "class": "modal-card-head"
+    className: "modal-card-head"
   }, _react.default.createElement("p", {
-    "class": "modal-card-title is-large"
+    className: "modal-card-title is-large"
   }, _react.default.createElement("strong", null, "..Time for a break !")), _react.default.createElement("button", {
     onClick: closeModal(),
     className: "delete is-large",
     "aria-label": "close"
   })), _react.default.createElement("section", {
-    "class": "modal-card-body has-text-centered"
+    className: "modal-card-body has-text-centered"
   }, _react.default.createElement("button", {
     className: "button is-primary is-inverted is-large ",
     onClick: toggle()
@@ -25127,7 +25127,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36653" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46603" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

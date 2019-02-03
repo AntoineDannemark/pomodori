@@ -13,7 +13,7 @@ class App extends React.Component {
             minutes: 20,
             seconds: 30,
             running: false,
-            toggleDisplay: "Start",
+            toggleDisplay: "START",
             digits: [0, 0, 0, 0],
             modalStatus: '',
         };
@@ -22,6 +22,7 @@ class App extends React.Component {
         this.decreaseTime = this.decreaseTime.bind(this);
         this.toggle = this.toggle.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        // this
     }
     
     componentDidMount() {
@@ -46,11 +47,12 @@ class App extends React.Component {
         this.restartTimer();
         this.setState({ 
             running: true, 
-            toggleDisplay: "Reset",
+            toggleDisplay: "RESET",
         });
       }
 
     restartTimer() {
+        this.closeModal();
         clearInterval(this.timerID);
         this.timerID = setInterval(this.countTime, 1000);
     }
@@ -60,7 +62,7 @@ class App extends React.Component {
         this.setState({
             running: false, 
             time: 1200,
-            toggleDisplay: "Start",
+            toggleDisplay: "START",
         }, function() {
             this.formatTime();
         });
@@ -77,7 +79,7 @@ class App extends React.Component {
     decreaseTime(min) {
         let ms = min * 60;
         let newTime = 0;
-        (this.state.time - ms <= 0) ? this.newTime = 5 : this.newTime = this.state.time - ms,     
+        (this.state.time - ms <= 0) ? this.newTime = 1 : this.newTime = this.state.time - ms,     
         this.setState({
             time: this.newTime,
         }, function() {
@@ -141,7 +143,7 @@ class App extends React.Component {
 
     closeModal() {
         this.setState({
-            modalStatus: '',
+            modalStatus: '',    
         })
     }
 
@@ -160,7 +162,11 @@ class App extends React.Component {
                         decreaseTime={() => this.decreaseTime}
                     />         
                 </div> 
-                <Modal modalStatus={this.state.modalStatus} closeModal={() => this.closeModal}/>      
+                <Modal 
+                modalStatus={this.state.modalStatus} 
+                toggle={() => this.toggle}
+                closeModal={() => this.closeModal}
+                />      
             </div>
         )   
     }

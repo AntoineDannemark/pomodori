@@ -24704,7 +24704,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Button = function Button(_ref) {
   var disabled = _ref.disabled,
-      text = _ref.text,
+      btnLogo = _ref.btnLogo,
       actionLeft = _ref.actionLeft,
       actionRight = _ref.actionRight,
       key = _ref.key;
@@ -24719,7 +24719,9 @@ var Button = function Button(_ref) {
   }, _react.default.createElement("img", {
     src: _alarmBtnClean.default,
     alt: ""
-  })));
+  })), _react.default.createElement("div", {
+    className: "btnLogo"
+  }, btnLogo));
 };
 
 var _default = Button;
@@ -24757,15 +24759,15 @@ var Controls = function Controls(_ref) {
     className: "controls"
   }, _react.default.createElement(_Button.default, {
     disabled: running,
-    text: "+",
+    btnLogo: "+",
     actionLeft: increaseTime().bind(_this, 1),
     actionRight: increaseTime().bind(_this, 10)
   }), _react.default.createElement(_Button.default, {
-    text: toggleDisplay,
+    btnLogo: toggleDisplay,
     actionLeft: toggle()
   }), _react.default.createElement(_Button.default, {
     disabled: running,
-    text: "-",
+    btnLogo: "-",
     actionLeft: decreaseTime().bind(_this, 1),
     actionRight: decreaseTime().bind(_this, 10)
   }));
@@ -24773,7 +24775,12 @@ var Controls = function Controls(_ref) {
 
 var _default = Controls;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Button":"src/components/Button.js","./Controls.css":"src/components/Controls.css"}],"node_modules/bulma/css/bulma.css":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Button":"src/components/Button.js","./Controls.css":"src/components/Controls.css"}],"src/components/Modal.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/bulma/css/bulma.css":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -24789,20 +24796,26 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+require("./Modal.css");
+
 require("bulma/css/bulma.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Modal = function Modal(_ref) {
   var modalStatus = _ref.modalStatus,
-      closeModal = _ref.closeModal;
+      closeModal = _ref.closeModal,
+      toggle = _ref.toggle;
   return _react.default.createElement("div", {
     className: "modal ".concat(modalStatus)
   }, _react.default.createElement("div", {
     className: "modal-background"
   }), _react.default.createElement("div", {
     className: "modal-content"
-  }, "blablabkla"), _react.default.createElement("button", {
+  }, _react.default.createElement("button", {
+    onClick: toggle(),
+    className: "is-large"
+  }, "YOYO")), _react.default.createElement("button", {
     onClick: closeModal(),
     className: "modal-close is-large",
     "aria-label": "close"
@@ -24811,7 +24824,7 @@ var Modal = function Modal(_ref) {
 
 var _default = Modal;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","bulma/css/bulma.css":"node_modules/bulma/css/bulma.css"}],"src/components/App.css":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Modal.css":"src/components/Modal.css","bulma/css/bulma.css":"node_modules/bulma/css/bulma.css"}],"src/components/App.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -24877,7 +24890,7 @@ function (_React$Component) {
       minutes: 20,
       seconds: 30,
       running: false,
-      toggleDisplay: "Start",
+      toggleDisplay: "START",
       digits: [0, 0, 0, 0],
       modalStatus: ''
     };
@@ -24885,7 +24898,8 @@ function (_React$Component) {
     _this.increaseTime = _this.increaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.decreaseTime = _this.decreaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.toggle = _this.toggle.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.closeModal = _this.closeModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.closeModal = _this.closeModal.bind(_assertThisInitialized(_assertThisInitialized(_this))); // this
+
     return _this;
   }
 
@@ -24916,12 +24930,13 @@ function (_React$Component) {
       this.restartTimer();
       this.setState({
         running: true,
-        toggleDisplay: "Reset"
+        toggleDisplay: "RESET"
       });
     }
   }, {
     key: "restartTimer",
     value: function restartTimer() {
+      this.closeModal();
       clearInterval(this.timerID);
       this.timerID = setInterval(this.countTime, 1000);
     }
@@ -24932,7 +24947,7 @@ function (_React$Component) {
       this.setState({
         running: false,
         time: 1200,
-        toggleDisplay: "Start"
+        toggleDisplay: "START"
       }, function () {
         this.formatTime();
       });
@@ -24951,7 +24966,7 @@ function (_React$Component) {
     value: function decreaseTime(min) {
       var ms = min * 60;
       var newTime = 0;
-      this.state.time - ms <= 0 ? this.newTime = 5 : this.newTime = this.state.time - ms, this.setState({
+      this.state.time - ms <= 0 ? this.newTime = 1 : this.newTime = this.state.time - ms, this.setState({
         time: this.newTime
       }, function () {
         this.formatTime();
@@ -25045,6 +25060,9 @@ function (_React$Component) {
         }
       })), _react.default.createElement(_Modal.default, {
         modalStatus: this.state.modalStatus,
+        toggle: function toggle() {
+          return _this2.toggle;
+        },
         closeModal: function closeModal() {
           return _this2.closeModal;
         }

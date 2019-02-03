@@ -1,6 +1,7 @@
 import React from "react";
 import Timer from './Timer'
 import Controls from './Controls';
+import Modal from './Modal';
 import './App.css';
 
 class App extends React.Component {
@@ -13,12 +14,13 @@ class App extends React.Component {
             running: false,
             toggleDisplay: "Start",
             digits: [0, 0, 0, 0],
-
+            modalStatus: '',
         };
         this.countTime = this.countTime.bind(this);
         this.increaseTime = this.increaseTime.bind(this);
         this.decreaseTime = this.decreaseTime.bind(this);
         this.toggle = this.toggle.bind(this);
+        this.closeModal = this.closeModal.bind(this);
     }
     
     componentDidMount() {
@@ -28,6 +30,7 @@ class App extends React.Component {
     countTime() {
         if (this.state.time === 0) {
             this.reset();
+            this.displayModal();
         }
         if (this.state.running === true) {
             this.setState({
@@ -73,7 +76,7 @@ class App extends React.Component {
     decreaseTime(min) {
         let ms = min * 60;
         let newTime = 0;
-        (this.state.time - ms <= 0) ? this.newTime = 60 : this.newTime = this.state.time - ms,     
+        (this.state.time - ms <= 0) ? this.newTime = 5 : this.newTime = this.state.time - ms,     
         this.setState({
             time: this.newTime,
         }, function() {
@@ -129,6 +132,18 @@ class App extends React.Component {
         });  
     }
 
+    displayModal() {
+        this.setState({
+            modalStatus: "is-active",
+        })
+    }
+
+    closeModal() {
+        this.setState({
+            modalStatus: '',
+        })
+    }
+
     render() {
         return (
             <div className="appContainer">            
@@ -139,7 +154,8 @@ class App extends React.Component {
                     toggle={() => this.toggle}
                     increaseTime={(() => this.increaseTime)}
                     decreaseTime={() => this.decreaseTime}
-                />                
+                />          
+                <Modal modalStatus={this.state.modalStatus} closeModal={() => this.closeModal}/>      
             </div>
         )   
     }

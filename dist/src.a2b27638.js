@@ -24554,7 +24554,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Digit.js":[function(require,module,exports) {
+},{"./../fonts/dsDigital/DS-DIGI.TTF":[["DS-DIGI.e05373d7.TTF","src/fonts/dsDigital/DS-DIGI.TTF"],"src/fonts/dsDigital/DS-DIGI.TTF"],"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Digit.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24619,7 +24619,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Separator.js":[function(require,module,exports) {
+},{"./../fonts/dsDigital/DS-DIGI.TTF":[["DS-DIGI.e05373d7.TTF","src/fonts/dsDigital/DS-DIGI.TTF"],"src/fonts/dsDigital/DS-DIGI.TTF"],"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Separator.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24684,7 +24684,9 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Button.js":[function(require,module,exports) {
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/img/alarmBtnClean.png":[function(require,module,exports) {
+module.exports = "/alarmBtnClean.faa1b935.png";
+},{}],"src/components/Button.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24695,6 +24697,8 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 
 require("./Button.css");
+
+var _alarmBtnClean = _interopRequireDefault(require("../img/alarmBtnClean.png"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24708,16 +24712,19 @@ var Button = function Button(_ref) {
     className: "buttonContainer"
   }, _react.default.createElement("button", {
     key: key,
-    className: "button",
+    className: "btn",
     disabled: disabled,
     onClick: actionLeft,
     onContextMenu: actionRight
-  }, text));
+  }, _react.default.createElement("img", {
+    src: _alarmBtnClean.default,
+    alt: ""
+  })));
 };
 
 var _default = Button;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Button.css":"src/components/Button.css"}],"src/components/Controls.css":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Button.css":"src/components/Button.css","../img/alarmBtnClean.png":"src/img/alarmBtnClean.png"}],"src/components/Controls.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -24766,12 +24773,55 @@ var Controls = function Controls(_ref) {
 
 var _default = Controls;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Button":"src/components/Button.js","./Controls.css":"src/components/Controls.css"}],"src/components/App.css":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Button":"src/components/Button.js","./Controls.css":"src/components/Controls.css"}],"node_modules/bulma/css/bulma.css":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Modal.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("bulma/css/bulma.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Modal = function Modal(_ref) {
+  var modalStatus = _ref.modalStatus,
+      closeModal = _ref.closeModal;
+  return _react.default.createElement("div", {
+    className: "modal ".concat(modalStatus)
+  }, _react.default.createElement("div", {
+    className: "modal-background"
+  }), _react.default.createElement("div", {
+    className: "modal-content"
+  }, "blablabkla"), _react.default.createElement("button", {
+    onClick: closeModal(),
+    className: "modal-close is-large",
+    "aria-label": "close"
+  }));
+};
+
+var _default = Modal;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","bulma/css/bulma.css":"node_modules/bulma/css/bulma.css"}],"src/components/App.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/App.js":[function(require,module,exports) {
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Clock.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./../img/alarmBg.png":[["alarmBg.d1f727d0.png","src/img/alarmBg.png"],"src/img/alarmBg.png"],"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24785,7 +24835,11 @@ var _Timer = _interopRequireDefault(require("./Timer"));
 
 var _Controls = _interopRequireDefault(require("./Controls"));
 
+var _Modal = _interopRequireDefault(require("./Modal"));
+
 require("./App.css");
+
+require("./Clock.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24824,12 +24878,14 @@ function (_React$Component) {
       seconds: 30,
       running: false,
       toggleDisplay: "Start",
-      digits: [0, 0, 0, 0]
+      digits: [0, 0, 0, 0],
+      modalStatus: ''
     };
     _this.countTime = _this.countTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.increaseTime = _this.increaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.decreaseTime = _this.decreaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.toggle = _this.toggle.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.closeModal = _this.closeModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -24843,6 +24899,7 @@ function (_React$Component) {
     value: function countTime() {
       if (this.state.time === 0) {
         this.reset();
+        this.displayModal();
       }
 
       if (this.state.running === true) {
@@ -24894,7 +24951,7 @@ function (_React$Component) {
     value: function decreaseTime(min) {
       var ms = min * 60;
       var newTime = 0;
-      this.state.time - ms <= 0 ? this.newTime = 60 : this.newTime = this.state.time - ms, this.setState({
+      this.state.time - ms <= 0 ? this.newTime = 5 : this.newTime = this.state.time - ms, this.setState({
         time: this.newTime
       }, function () {
         this.formatTime();
@@ -24950,12 +25007,28 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "displayModal",
+    value: function displayModal() {
+      this.setState({
+        modalStatus: "is-active"
+      });
+    }
+  }, {
+    key: "closeModal",
+    value: function closeModal() {
+      this.setState({
+        modalStatus: ''
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
       return _react.default.createElement("div", {
         className: "appContainer"
+      }, _react.default.createElement("div", {
+        className: "clock"
       }, _react.default.createElement(_Timer.default, {
         digits: this.state.digits
       }), _react.default.createElement(_Controls.default, {
@@ -24970,6 +25043,11 @@ function (_React$Component) {
         decreaseTime: function decreaseTime() {
           return _this2.decreaseTime;
         }
+      })), _react.default.createElement(_Modal.default, {
+        modalStatus: this.state.modalStatus,
+        closeModal: function closeModal() {
+          return _this2.closeModal;
+        }
       }));
     }
   }]);
@@ -24979,7 +25057,7 @@ function (_React$Component) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Timer":"src/components/Timer.js","./Controls":"src/components/Controls.js","./App.css":"src/components/App.css"}],"src/index.css":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Timer":"src/components/Timer.js","./Controls":"src/components/Controls.js","./Modal":"src/components/Modal.js","./App.css":"src/components/App.css","./Clock.css":"src/components/Clock.css"}],"src/index.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -25025,7 +25103,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42671" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36653" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

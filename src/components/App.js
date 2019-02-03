@@ -3,6 +3,7 @@ import Timer from './Timer'
 import Controls from './Controls';
 import Modal from './Modal';
 import './App.css';
+import './Clock.css';
 
 class App extends React.Component {
     constructor(props) {
@@ -144,17 +145,21 @@ class App extends React.Component {
         })
     }
 
+
+
     render() {
         return (
             <div className="appContainer">            
-                <Timer digits={this.state.digits} />               
-                <Controls 
-                    running={this.state.running} 
-                    toggleDisplay={this.state.toggleDisplay}
-                    toggle={() => this.toggle}
-                    increaseTime={(() => this.increaseTime)}
-                    decreaseTime={() => this.decreaseTime}
-                />          
+                <div className="clock">
+                    <Timer digits={this.state.digits} />               
+                    <Controls 
+                        running={this.state.running} 
+                        toggleDisplay={this.state.toggleDisplay}
+                        toggle={() => this.toggle}
+                        increaseTime={(() => this.increaseTime)}
+                        decreaseTime={() => this.decreaseTime}
+                    />         
+                </div> 
                 <Modal modalStatus={this.state.modalStatus} closeModal={() => this.closeModal}/>      
             </div>
         )   

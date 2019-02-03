@@ -1,17 +1,18 @@
 import React from 'react';
 import './Button.css';
+import alarmBtnClean from '../img/alarmBtnClean.png'
 
 const Button = ({disabled, text, actionLeft, actionRight, key}) => (
     
     <div className="buttonContainer">            
             <button 
                 key={key}
-                className="button"
+                className="btn"
                 disabled={disabled} 
                 onClick={actionLeft} 
                 onContextMenu={actionRight}
             >
-            {text}     
+            <img src={alarmBtnClean} alt=""></img>     
             </button>      
     </div>
 )

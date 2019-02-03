@@ -1,0 +1,20 @@
+.clock {
+    background-image: url('../img/alarmBg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 65.93%;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+@media all and (min-width: 671px) {
+    .clock {
+        width: 820px;
+        height: 573px;
+    }
+}

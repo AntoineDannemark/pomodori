@@ -1,9 +1,24 @@
+@font-face {
+    font-family: DS-Digital;
+    src: url('../fonts/dsDigital/DS-DIGI.TTF') format("truetype");
+  }
+
 .digit {
     /* height: 100%; */
+    font-family: DS-Digital;
     width: 50%;
-    /* background-color: brown; */
-    font-size: 17vw;
+    
+    color: black;
     justify-content: center;
     align-items: center;
     display: flex;
+    background-color: rgba(0,0,0,0);
+    position: relative;
+}
+
+@media all and (min-width: 668px) {
+    .digit {
+        font-size: 170px;
+        transform: scale(1, 1.5);
+    }
 }

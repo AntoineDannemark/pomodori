@@ -1,20 +1,17 @@
 .timer {
-    height: 100%;
-    width: 90%;
-    border: 1px solid grey;
-    margin: 0;
+    height: 35%;
+    width: 75%;
+    /* margin-left: 15%;  */
+    /* margin-top: 12%; */
     display: flex;
-    text-align: center;
-    /* overflow: hidden; */
+    /* text-align: center; */
+    position: relative;
+    align-items: center;
 }
-
-/* Medium screens */
-@media all and (max-width: 800px) {
+@media all and (min-width: 671px) {
     .timer {
-        height: 90%;
-        width: 100%;
-        flex-direction: row;
+        height: 250px;
+        width: 535px;
+        margin: 90px 15px 0 0;
     }
-  }
-
-
+}

@@ -24554,7 +24554,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Digit.js":[function(require,module,exports) {
+},{"./../fonts/dsDigital/DS-DIGI.TTF":[["DS-DIGI.e05373d7.TTF","src/fonts/dsDigital/DS-DIGI.TTF"],"src/fonts/dsDigital/DS-DIGI.TTF"],"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Digit.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24644,7 +24644,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Separator.js":[function(require,module,exports) {
+},{"./../fonts/dsDigital/DS-DIGI.TTF":[["DS-DIGI.e05373d7.TTF","src/fonts/dsDigital/DS-DIGI.TTF"],"src/fonts/dsDigital/DS-DIGI.TTF"],"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Separator.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24724,7 +24724,9 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Button.js":[function(require,module,exports) {
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/img/alarmBtnClean.png":[function(require,module,exports) {
+module.exports = "/alarmBtnClean.faa1b935.png";
+},{}],"src/components/Button.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24736,11 +24738,13 @@ var _react = _interopRequireDefault(require("react"));
 
 require("./Button.css");
 
+var _alarmBtnClean = _interopRequireDefault(require("../img/alarmBtnClean.png"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Button = function Button(_ref) {
   var disabled = _ref.disabled,
-      text = _ref.text,
+      btnLogo = _ref.btnLogo,
       actionLeft = _ref.actionLeft,
       actionRight = _ref.actionRight,
       key = _ref.key;
@@ -24748,16 +24752,21 @@ var Button = function Button(_ref) {
     className: "buttonContainer"
   }, _react.default.createElement("button", {
     key: key,
-    className: "button",
+    className: "btn",
     disabled: disabled,
     onClick: actionLeft,
     onContextMenu: actionRight
-  }, text));
+  }, _react.default.createElement("img", {
+    src: _alarmBtnClean.default,
+    alt: ""
+  })), _react.default.createElement("div", {
+    className: "btnLogo"
+  }, btnLogo));
 };
 
 var _default = Button;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Button.css":"src/components/Button.css"}],"src/components/Controls.css":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Button.css":"src/components/Button.css","../img/alarmBtnClean.png":"src/img/alarmBtnClean.png"}],"src/components/Controls.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -24790,15 +24799,15 @@ var Controls = function Controls(_ref) {
     className: "controls"
   }, _react.default.createElement(_Button.default, {
     disabled: running,
-    text: "+",
+    btnLogo: "+",
     actionLeft: increaseTime().bind(_this, 1),
     actionRight: increaseTime().bind(_this, 10)
   }), _react.default.createElement(_Button.default, {
-    text: toggleDisplay,
+    btnLogo: toggleDisplay,
     actionLeft: toggle()
   }), _react.default.createElement(_Button.default, {
     disabled: running,
-    text: "-",
+    btnLogo: "-",
     actionLeft: decreaseTime().bind(_this, 1),
     actionRight: decreaseTime().bind(_this, 10)
   }));
@@ -24806,12 +24815,72 @@ var Controls = function Controls(_ref) {
 
 var _default = Controls;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Button":"src/components/Button.js","./Controls.css":"src/components/Controls.css"}],"src/components/App.css":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Button":"src/components/Button.js","./Controls.css":"src/components/Controls.css"}],"src/components/Modal.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/App.js":[function(require,module,exports) {
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/bulma/css/bulma.css":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Modal.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./Modal.css");
+
+require("bulma/css/bulma.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Modal = function Modal(_ref) {
+  var modalStatus = _ref.modalStatus,
+      closeModal = _ref.closeModal,
+      toggle = _ref.toggle;
+  return _react.default.createElement("div", {
+    className: "modal ".concat(modalStatus)
+  }, _react.default.createElement("div", {
+    className: "modal-background"
+  }), _react.default.createElement("div", {
+    "class": "modal-card"
+  }, _react.default.createElement("header", {
+    "class": "modal-card-head"
+  }, _react.default.createElement("p", {
+    "class": "modal-card-title is-large"
+  }, _react.default.createElement("strong", null, "..Time for a break !")), _react.default.createElement("button", {
+    onClick: closeModal(),
+    className: "delete is-large",
+    "aria-label": "close"
+  })), _react.default.createElement("section", {
+    "class": "modal-card-body has-text-centered"
+  }, _react.default.createElement("button", {
+    className: "button is-primary is-inverted is-large ",
+    onClick: toggle()
+  }, "Restart Timer"))));
+};
+
+var _default = Modal;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./Modal.css":"src/components/Modal.css","bulma/css/bulma.css":"node_modules/bulma/css/bulma.css"}],"src/components/App.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Clock.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./../img/alarmBg.png":[["alarmBg.d1f727d0.png","src/img/alarmBg.png"],"src/img/alarmBg.png"],"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24825,7 +24894,11 @@ var _Timer = _interopRequireDefault(require("./Timer"));
 
 var _Controls = _interopRequireDefault(require("./Controls"));
 
+var _Modal = _interopRequireDefault(require("./Modal"));
+
 require("./App.css");
+
+require("./Clock.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24863,16 +24936,24 @@ function (_React$Component) {
       minutes: 20,
       seconds: 30,
       running: false,
+<<<<<<< HEAD
       toggleDisplay: "Start",
       digits: [0, 0, 0, 0],
       prevVals: [0, 0, 0, 0],
       nextVals: [0, 0, 0, 0],
       anims: []
+=======
+      toggleDisplay: "START",
+      digits: [0, 0, 0, 0],
+      modalStatus: ''
+>>>>>>> noAnim
     };
     _this.countTime = _this.countTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.increaseTime = _this.increaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.decreaseTime = _this.decreaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.toggle = _this.toggle.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.closeModal = _this.closeModal.bind(_assertThisInitialized(_assertThisInitialized(_this))); // this
+
     return _this;
   }
 
@@ -24890,12 +24971,19 @@ function (_React$Component) {
   }, {
     key: "countTime",
     value: function countTime() {
+<<<<<<< HEAD
       this.setState({
         time: this.state.time - 1
       }, function () {
         if (this.state.time === 0) {
           this.reset();
         }
+=======
+      if (this.state.time === 0) {
+        this.reset();
+        this.displayModal();
+      }
+>>>>>>> noAnim
 
         if (this.state.running === true) {
           this.formatTime();
@@ -24909,14 +24997,19 @@ function (_React$Component) {
       this.restartTimer();
       this.setState({
         running: true,
+<<<<<<< HEAD
         toggleDisplay: "Reset"
       }, function () {
         this.animate();
+=======
+        toggleDisplay: "RESET"
+>>>>>>> noAnim
       });
     }
   }, {
     key: "restartTimer",
     value: function restartTimer() {
+      this.closeModal();
       clearInterval(this.timerID);
       this.timerID = setInterval(this.countTime, 1000);
     }
@@ -24943,7 +25036,7 @@ function (_React$Component) {
       this.setState({
         running: false,
         time: 1200,
-        toggleDisplay: "Start"
+        toggleDisplay: "START"
       }, function () {
         this.formatTime();
         this.clearAnimations();
@@ -24963,7 +25056,7 @@ function (_React$Component) {
     value: function decreaseTime(min) {
       var ms = min * 60;
       var newTime = 0;
-      this.state.time - ms <= 0 ? this.newTime = 60 : this.newTime = this.state.time - ms, this.setState({
+      this.state.time - ms <= 0 ? this.newTime = 1 : this.newTime = this.state.time - ms, this.setState({
         time: this.newTime
       }, function () {
         this.formatTime();
@@ -25021,6 +25114,7 @@ function (_React$Component) {
       });
     }
   }, {
+<<<<<<< HEAD
     key: "populateNeighborVals",
     value: function populateNeighborVals() {
       var a = this.state.digits.slice();
@@ -25051,6 +25145,20 @@ function (_React$Component) {
           });
         }
       }
+=======
+    key: "displayModal",
+    value: function displayModal() {
+      this.setState({
+        modalStatus: "is-active"
+      });
+    }
+  }, {
+    key: "closeModal",
+    value: function closeModal() {
+      this.setState({
+        modalStatus: ''
+      });
+>>>>>>> noAnim
     }
   }, {
     key: "render",
@@ -25059,6 +25167,8 @@ function (_React$Component) {
 
       return _react.default.createElement("div", {
         className: "appContainer"
+      }, _react.default.createElement("div", {
+        className: "clock"
       }, _react.default.createElement(_Timer.default, {
         digits: this.state.digits,
         prevVals: this.state.prevVals,
@@ -25076,6 +25186,14 @@ function (_React$Component) {
         decreaseTime: function decreaseTime() {
           return _this2.decreaseTime;
         }
+      })), _react.default.createElement(_Modal.default, {
+        modalStatus: this.state.modalStatus,
+        toggle: function toggle() {
+          return _this2.toggle;
+        },
+        closeModal: function closeModal() {
+          return _this2.closeModal;
+        }
       }));
     }
   }]);
@@ -25085,7 +25203,7 @@ function (_React$Component) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Timer":"src/components/Timer.js","./Controls":"src/components/Controls.js","./App.css":"src/components/App.css"}],"src/index.css":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Timer":"src/components/Timer.js","./Controls":"src/components/Controls.js","./Modal":"src/components/Modal.js","./App.css":"src/components/App.css","./Clock.css":"src/components/Clock.css"}],"src/index.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -25131,7 +25249,11 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+<<<<<<< HEAD
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "42671" + '/');
+=======
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36653" + '/');
+>>>>>>> noAnim
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

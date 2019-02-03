@@ -1,7 +1,9 @@
 import React from "react";
 import Timer from './Timer'
 import Controls from './Controls';
+import Modal from './Modal';
 import './App.css';
+import './Clock.css';
 
 class App extends React.Component {
     constructor(props) {
@@ -11,16 +13,15 @@ class App extends React.Component {
             minutes: 20,
             seconds: 30,
             running: false,
-            toggleDisplay: "Start",
+            toggleDisplay: "START",
             digits: [0, 0, 0, 0],
-            prevVals: [0, 0, 0, 0],
-            nextVals: [0, 0, 0, 0],
-            anims:[],
+            modalStatus: '',
         };
         this.countTime = this.countTime.bind(this);
         this.increaseTime = this.increaseTime.bind(this);
         this.decreaseTime = this.decreaseTime.bind(this);
         this.toggle = this.toggle.bind(this);
+        this.closeModal = this.closeModal.bind(this);
     }
     
     componentDidMount() {
@@ -28,37 +29,33 @@ class App extends React.Component {
             time: this.state.time - 1,
         }, function() {
             this.formatTime();
-        }, function() {
-            this.populateNeighborVals();    
         });
     }
     
     countTime() {
-        this.setState({
-            time: this.state.time - 1,
-        }, function() {                             
-            if (this.state.time === 0) {
-                this.reset();
-            }
-            if (this.state.running === true) {
+        if (this.state.time === 0) {
+            this.reset();
+            this.displayModal();
+        }
+        if (this.state.running === true) {
+            this.setState({
+                time: this.state.time - 1,
+            }, function() {
                 this.formatTime();
-                this.populateNeighborVals();
-            }            
-        });
+            });            
+        }
     }
 
     run() {
         this.restartTimer();        
         this.setState({ 
             running: true, 
-            toggleDisplay: "Reset",
-        }
-        , function() {
-            this.animate();
+            toggleDisplay: "RESET",
         });
     }
 
     restartTimer() {
+        this.closeModal();
         clearInterval(this.timerID);
         this.timerID = setInterval(this.countTime, 1000);
     }
@@ -82,7 +79,7 @@ class App extends React.Component {
         this.setState({
             running: false, 
             time: 1200,
-            toggleDisplay: "Start",
+            toggleDisplay: "START",
         }, function() {
             this.formatTime();
             this.clearAnimations();
@@ -100,7 +97,7 @@ class App extends React.Component {
     decreaseTime(min) {
         let ms = min * 60;
         let newTime = 0;
-        (this.state.time - ms <= 0) ? this.newTime = 60 : this.newTime = this.state.time - ms,     
+        (this.state.time - ms <= 0) ? this.newTime = 1 : this.newTime = this.state.time - ms,     
         this.setState({
             time: this.newTime,
         }, function() {
@@ -157,53 +154,38 @@ class App extends React.Component {
         });  
     }
 
-    populateNeighborVals() {
-        let a = this.state.digits.slice();
-        let b = this.state.digits.slice();
-        for (let i = 0; i < 4; i++) {
-            if (this.state.digits[i] > 8) {
-                a[i] = 0;
-                this.setState({
-                    prevVals: a,
-                })
-            } else {
-                a[i] = this.state.digits[i];
-                this.setState({
-                    prevVals: a,
-                })
-            }  
-            if(this.state.digits[i] < 1) {
-                b[i] = 9;
-                this.setState({
-                    nextVals: b,
-                })
-            } else {
-                b[i] = this.state.digits[i];
-                this.setState({
-                    nextVals: b,
-                })
-            }  
-        }
-
+    displayModal() {
+        this.setState({
+            modalStatus: "is-active",
+        })
     }
+
+    closeModal() {
+        this.setState({
+            modalStatus: '',    
+        })
+    }
+
 
 
     render() {
         return (
             <div className="appContainer">            
-                <Timer 
-                    digits={this.state.digits} 
-                    prevVals={this.state.prevVals} 
-                    nextVals={this.state.nextVals}
-                    anims={this.state.anims}
-                />               
-                <Controls 
-                    running={this.state.running} 
-                    toggleDisplay={this.state.toggleDisplay}
-                    toggle={() => this.toggle}
-                    increaseTime={(() => this.increaseTime)}
-                    decreaseTime={() => this.decreaseTime}
-                />                
+                <div className="clock">
+                    <Timer digits={this.state.digits} />               
+                    <Controls 
+                        running={this.state.running} 
+                        toggleDisplay={this.state.toggleDisplay}
+                        toggle={() => this.toggle}
+                        increaseTime={(() => this.increaseTime)}
+                        decreaseTime={() => this.decreaseTime}
+                    />         
+                </div> 
+                <Modal 
+                modalStatus={this.state.modalStatus} 
+                toggle={() => this.toggle}
+                closeModal={() => this.closeModal}
+                />      
             </div>
         )   
     }

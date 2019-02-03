@@ -1,113 +1,26 @@
-.threeDigitsWrapper {
-    width: 100%;
-    height: 300%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    
-}
-
+@font-face {
+    font-family: DS-Digital;
+    src: url('../fonts/dsDigital/DS-DIGI.TTF') format("truetype");
+  }
 
 .digit {
-    height: 33.33%;
-    width:100%;
-    /* color: white; */
-    /* background-image: radial-gradient(grey, black); */
-    font-size: 17vw;
+    /* height: 100%; */
+    font-family: DS-Digital;
+    width: 50%;
+    
+    color: black;
     justify-content: center;
     align-items: center;
     position: relative;
     top: -33.33%;
     display: flex;
-    overflow: hidden;
-    transform: scale(1, 1.8);
+    background-color: rgba(0,0,0,0);
+    position: relative;
 }
 
-@keyframes rollOneSecInit {
-    from {
-        top: -50%;
-    }
-    to {
-        top: 50%;
+@media all and (min-width: 668px) {
+    .digit {
+        font-size: 170px;
+        transform: scale(1, 1.5);
     }
 }
-@keyframes rollTenSecInit{
-    from {
-        top: 0%;
-    }
-    to {
-        top: 100%;
-    }
-}
-@keyframes rollOneMinInit {
-    from {
-        top: 0%;
-    }
-    to {
-        top: 100%;
-    }
-}
-@keyframes rollTenMinInit {
-    from {
-        top: 0%;
-    }
-    to {
-        top: 100%;
-    }
-}
-
-@keyframes rollOneSec {
-    from {
-        top: -100%;
-    }
-    to {
-        top: 100%;
-    }
-}
-@keyframes rollTenSec {
-    from {
-        top: -50%;
-    }
-    to {
-        top: 50%;
-    }
-}
-@keyframes rollOneMin {
-    from {
-        top: -50%;
-    }
-    to {
-        top: 50%;
-    }
-}
-@keyframes rollTenMin {
-    from {
-        top: -50%;
-    }
-    to {
-        top: 50%;
-    }
-}
-
-.rollOneSec {
-    animation: 
-        rollOneSec 1s linear infinite;
-        /* rollOneSec 1s linear infinite; */
-}
-
-.rollTenSec {
-    animation: rollTenSec 10s linear infinite
-}
-
-
-
-.rollOneMin {
-    animation: rollOneMin 60s linear infinite;
-}
-
-
-
-.rollTenMin {
-    animation: rollTenMin 600s linear infinite;
-}
-

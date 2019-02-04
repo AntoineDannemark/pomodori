@@ -24707,6 +24707,7 @@ var Button = function Button(_ref) {
       btnLogo = _ref.btnLogo,
       actionLeft = _ref.actionLeft,
       actionRight = _ref.actionRight,
+      title = _ref.title,
       key = _ref.key;
   return _react.default.createElement("div", {
     className: "buttonContainer"
@@ -24715,7 +24716,8 @@ var Button = function Button(_ref) {
     className: "btn",
     disabled: disabled,
     onClick: actionLeft,
-    onContextMenu: actionRight
+    onContextMenu: actionRight,
+    title: title
   }, _react.default.createElement("img", {
     src: _alarmBtnClean.default,
     alt: ""
@@ -24754,22 +24756,26 @@ var Controls = function Controls(_ref) {
       toggleDisplay = _ref.toggleDisplay,
       increaseTime = _ref.increaseTime,
       decreaseTime = _ref.decreaseTime,
-      toggle = _ref.toggle;
+      toggle = _ref.toggle,
+      title = _ref.title;
   return _react.default.createElement("div", {
     className: "controls"
   }, _react.default.createElement(_Button.default, {
     disabled: running,
-    btnLogo: "+",
-    actionLeft: increaseTime().bind(_this, 1),
-    actionRight: increaseTime().bind(_this, 10)
-  }), _react.default.createElement(_Button.default, {
-    btnLogo: toggleDisplay,
-    actionLeft: toggle()
-  }), _react.default.createElement(_Button.default, {
-    disabled: running,
     btnLogo: "-",
     actionLeft: decreaseTime().bind(_this, 1),
-    actionRight: decreaseTime().bind(_this, 10)
+    actionRight: decreaseTime().bind(_this, 10),
+    title: title[0]
+  }), _react.default.createElement(_Button.default, {
+    btnLogo: toggleDisplay,
+    actionLeft: toggle(),
+    title: title[1]
+  }), _react.default.createElement(_Button.default, {
+    disabled: running,
+    btnLogo: "+",
+    actionLeft: increaseTime().bind(_this, 1),
+    actionRight: increaseTime().bind(_this, 10),
+    title: title[2]
   }));
 };
 
@@ -24965,7 +24971,8 @@ function (_React$Component) {
       running: false,
       toggleDisplay: "START",
       digits: [0, 0, 0, 0],
-      modalStatus: ''
+      modalStatus: '',
+      title: ['L = -1 / R = -10', 'start working', 'L = +1 / R = +10']
     };
     _this.countTime = _this.countTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.increaseTime = _this.increaseTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
@@ -24978,11 +24985,7 @@ function (_React$Component) {
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.setState({
-        time: this.state.time - 1
-      }, function () {
-        this.formatTime();
-      });
+      this.formatTime();
     }
   }, {
     key: "countTime",
@@ -25134,7 +25137,7 @@ function (_React$Component) {
     key: "closeModal",
     value: function closeModal() {
       this.setState({
-        modalStatus: ''
+        modalStatus: null
       });
     }
   }, {
@@ -25159,7 +25162,8 @@ function (_React$Component) {
         },
         decreaseTime: function decreaseTime() {
           return _this2.decreaseTime;
-        }
+        },
+        title: this.state.title
       })), _react.default.createElement(_Modal.default, {
         modalStatus: this.state.modalStatus,
         toggle: function toggle() {
@@ -25216,7 +25220,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38987" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44851" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

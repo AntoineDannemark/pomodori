@@ -8,6 +8,7 @@ import './Clock.css';
 class App extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             time: 1200,
             minutes: 20,
@@ -16,6 +17,7 @@ class App extends React.Component {
             toggleDisplay: "START",
             digits: [0, 0, 0, 0],
             modalStatus: '',
+            title: ['L = -1 / R = -10', 'start working','L = +1 / R = +10']
         };
         this.countTime = this.countTime.bind(this);
         this.increaseTime = this.increaseTime.bind(this);
@@ -165,7 +167,7 @@ class App extends React.Component {
 
     closeModal() {
         this.setState({
-            modalStatus: '',    
+            modalStatus: null,    
         })
     }
 
@@ -182,6 +184,7 @@ class App extends React.Component {
                         toggle={() => this.toggle}
                         increaseTime={(() => this.increaseTime)}
                         decreaseTime={() => this.decreaseTime}
+                        title={this.state.title}
                     />         
                 </div> 
                 <Modal 

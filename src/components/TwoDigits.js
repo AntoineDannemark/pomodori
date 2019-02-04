@@ -4,8 +4,8 @@ import './TwoDigits.css';
 
 const TwoDigits = ({digitOne, digitTwo,}) => (
     <div className="twoDigits">
-            <Digit anim={animOne} curVal={digitOne}/>
-            <Digit anim={animTwo} curVal={digitTwo}/>
+            <Digit curVal={digitOne}/>
+            <Digit curVal={digitTwo}/>
     </div>
 )
 

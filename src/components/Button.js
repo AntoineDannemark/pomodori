@@ -1,6 +1,6 @@
 import React from 'react';
 import './Button.css';
-import alarmBtnClean from '../img/alarmBtnClean.png'
+import alarmBtnClean from '../../public/img/alarmBtnClean.png'
 
 const Button = ({disabled, btnLogo, actionLeft, actionRight, key}) => (
     
@@ -12,7 +12,7 @@ const Button = ({disabled, btnLogo, actionLeft, actionRight, key}) => (
                 onClick={actionLeft} 
                 onContextMenu={actionRight}
             >
-            <img src={ require ('../../public/img/alarmBtnClean')} alt=""></img>     
+            <img src={require (alarmBtnClean)} alt=""></img>     
             </button>      
             <div className="btnLogo">{btnLogo}</div>
     </div>

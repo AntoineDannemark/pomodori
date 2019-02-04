@@ -25,11 +25,7 @@ class App extends React.Component {
     }
     
     componentDidMount() {
-        this.setState({
-            time: this.state.time - 1,
-        }, function() {
-            this.formatTime();
-        });
+        this.formatTime();
     }
     
     countTime() {

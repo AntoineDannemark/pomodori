@@ -158,8 +158,7 @@ class App extends React.Component {
                 this.setState({
                     digits: a,
                 })
-            }            
-            this.populateNeighborVals();        
+            }              
         });  
     }
 

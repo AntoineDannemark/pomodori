@@ -4,6 +4,7 @@ html,body, #header, #app, #footer {
 
 html,body {
     height: 100%;
+    display: flex;
 }
 
 #header {

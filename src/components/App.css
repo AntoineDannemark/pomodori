@@ -14,5 +14,6 @@
 @media all and (min-width: 668px) {
     #app {
         transform: none;
+        height: 70%;
     }
 }

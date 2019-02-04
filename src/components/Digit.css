@@ -4,22 +4,25 @@
   }
 
 .digit {
-    /* height: 100%; */
+
     font-family: DS-Digital;
-    width: 50%;
-    
+    width: 100%;
     color: black;
     justify-content: center;
     align-items: center;
     position: relative;
-    top: -33.33%;
     display: flex;
     background-color: rgba(0,0,0,0);
     position: relative;
 }
 
+.digitWrapper {
+    width: 100%;
+}
+
 @media all and (min-width: 668px) {
     .digit {
+        width: 100%;
         font-size: 170px;
         transform: scale(1, 1.5);
     }

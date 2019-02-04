@@ -1,0 +1,20 @@
+html,body, #header, #app, #footer {
+    width: 100%;
+}
+
+html,body {
+    height: 100%;
+}
+
+#header {
+    height: 15%;
+}
+
+#app {
+    height: 70%;
+}
+
+#footer {
+    height: 15%;
+}
+

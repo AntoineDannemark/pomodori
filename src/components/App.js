@@ -60,19 +60,19 @@ class App extends React.Component {
         this.timerID = setInterval(this.countTime, 1000);
     }
 
-    animate() {
-        let newAnims =  ['rollTenMin', 'rollOneMin', 'rollTenSec', 'rollOneSec'];
-        this.setState({
-            anims: newAnims,
-        });
-    }
+    // animate() {
+    //     let newAnims =  ['rollTenMin', 'rollOneMin', 'rollTenSec', 'rollOneSec'];
+    //     this.setState({
+    //         anims: newAnims,
+    //     });
+    // }
 
-    clearAnimations() {
-        let newAnims =  [];
-        this.setState({
-            anims: newAnims,
-        });
-    }
+    // clearAnimations() {
+    //     let newAnims =  [];
+    //     this.setState({
+    //         anims: newAnims,
+    //     });
+    // }
 
     reset() {
         clearInterval(this.interval);
@@ -82,7 +82,6 @@ class App extends React.Component {
             toggleDisplay: "START",
         }, function() {
             this.formatTime();
-            this.clearAnimations();
         });
     }
 
@@ -98,7 +97,7 @@ class App extends React.Component {
         let ms = min * 60;
         let newTime = 0;
         if (this.state.time - ms <= 0) {
-            this.newTime = 1 
+            this.newTime = 1; 
         } else {
             this.newTime = this.state.time - ms;  
         } 

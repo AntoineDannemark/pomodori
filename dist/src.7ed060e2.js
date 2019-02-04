@@ -24948,23 +24948,19 @@ function (_React$Component) {
       this.closeModal();
       clearInterval(this.timerID);
       this.timerID = setInterval(this.countTime, 1000);
-    }
-  }, {
-    key: "animate",
-    value: function animate() {
-      var newAnims = ['rollTenMin', 'rollOneMin', 'rollTenSec', 'rollOneSec'];
-      this.setState({
-        anims: newAnims
-      });
-    }
-  }, {
-    key: "clearAnimations",
-    value: function clearAnimations() {
-      var newAnims = [];
-      this.setState({
-        anims: newAnims
-      });
-    }
+    } // animate() {
+    //     let newAnims =  ['rollTenMin', 'rollOneMin', 'rollTenSec', 'rollOneSec'];
+    //     this.setState({
+    //         anims: newAnims,
+    //     });
+    // }
+    // clearAnimations() {
+    //     let newAnims =  [];
+    //     this.setState({
+    //         anims: newAnims,
+    //     });
+    // }
+
   }, {
     key: "reset",
     value: function reset() {
@@ -24975,7 +24971,6 @@ function (_React$Component) {
         toggleDisplay: "START"
       }, function () {
         this.formatTime();
-        this.clearAnimations();
       });
     }
   }, {
@@ -25154,7 +25149,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42125" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36603" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

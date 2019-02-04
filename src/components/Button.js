@@ -12,7 +12,7 @@ const Button = ({disabled, btnLogo, actionLeft, actionRight, key}) => (
                 onClick={actionLeft} 
                 onContextMenu={actionRight}
             >
-            <img src={require (alarmBtnClean)} alt=""></img>     
+            <img src={(alarmBtnClean)} alt=""></img>     
             </button>      
             <div className="btnLogo">{btnLogo}</div>
     </div>

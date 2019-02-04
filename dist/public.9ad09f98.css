@@ -1,0 +1,21 @@
+html,body, #header, #app, #footer {
+    width: 100%;
+}
+
+html,body {
+    height: 100%;
+}
+
+#header {
+    height: 10%;
+}
+
+#footer {
+    height: 10%;
+}
+
+@media all and (max-width: 832px) {
+    #header, #footer {        
+        display: none;
+    }
+}

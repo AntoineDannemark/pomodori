@@ -3,7 +3,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    height: 65.93%;
+    height: 100%;
     width: 100%;
     margin: auto;
     align-items: center;
@@ -12,7 +12,7 @@
     position: relative;
 }
 
-@media all and (min-width: 671px) {
+@media all and (min-width: 832px) {
     .clock {
         width: 820px;
         height: 573px;

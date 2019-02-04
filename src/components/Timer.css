@@ -1,14 +1,12 @@
 .timer {
     height: 35%;
     width: 75%;
-    /* margin-left: 15%;  */
-    /* margin-top: 12%; */
+    margin: 40% 0 0 0;
     display: flex;
-    /* text-align: center; */
     position: relative;
     align-items: center;
 }
-@media all and (min-width: 671px) {
+@media all and (min-width: 832px) {
     .timer {
         height: 250px;
         width: 535px;

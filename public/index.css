@@ -4,18 +4,18 @@ html,body, #header, #app, #footer {
 
 html,body {
     height: 100%;
-    display: flex;
 }
 
 #header {
-    height: 15%;
-}
-
-#app {
-    height: 70%;
+    height: 10%;
 }
 
 #footer {
-    height: 15%;
+    height: 10%;
 }
 
+@media all and (max-width: 832px) {
+    #header, #footer {        
+        display: none;
+    }
+}

@@ -18,7 +18,7 @@
     position: relative;
 }
 
-@media all and (min-width: 668px) {
+@media all and (min-width: 832px) {
     .Separator {
         font-size: 180px;
     }

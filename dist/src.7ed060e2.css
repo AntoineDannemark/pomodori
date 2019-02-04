@@ -17,31 +17,26 @@
 }
 
 .digitWrapper {
-    width: 100%;
+    width: 50%;
+    display: flex;
+    font-size: 15vw;
+    transform: scale(1, 1.5);
 }
 
-@media all and (min-width: 668px) {
+@media all and (min-width: 832px) {
     .digit {
-        width: 100%;
         font-size: 170px;
-        transform: scale(1, 1.5);
     }
 }
 .twoDigits {
     width: 45%;
     height: 100%;
+    flex-direction: row;
     display: flex;
     position: relative;
 }
 
-/* Medium screens */
-@media all and (max-width: 800px) {
-    .twoDigits {
-        height: 45%;
-        width: 100%;
-        flex-direction: row;
-    }
-  }@font-face {
+@font-face {
     font-family: DS-Digital;
     src: url('DS-DIGI.fef6994a.TTF') format("truetype");
   }
@@ -61,7 +56,7 @@
     position: relative;
 }
 
-@media all and (min-width: 668px) {
+@media all and (min-width: 832px) {
     .Separator {
         font-size: 180px;
     }
@@ -69,14 +64,12 @@
 .timer {
     height: 35%;
     width: 75%;
-    /* margin-left: 15%;  */
-    /* margin-top: 12%; */
+    margin: 40% 0 0 0;
     display: flex;
-    /* text-align: center; */
     position: relative;
     align-items: center;
 }
-@media all and (min-width: 671px) {
+@media all and (min-width: 832px) {
     .timer {
         height: 250px;
         width: 535px;
@@ -118,7 +111,7 @@
 }
 
 
-@media all and (min-width: 668px) {
+@media all and (min-width: 832px) {
     .buttonContainer {
         margin: 0 12px 0 0;
         width: 98px;
@@ -132,12 +125,12 @@
 .controls {
     width: 40%;
     height: 25%;
-    /* margin-right: 35%; */
+    margin: 10% 0 0 0;
     display: flex;
     position: relative;
 }
 
-@media all and (min-width: 668px) {
+@media all and (min-width: 832px) {
     .controls {
         margin: 80px 255px 0 0;
         width: 350px;
@@ -10438,8 +10431,8 @@ label.panel-block:hover {
   padding: 3rem 1.5rem 6rem;
 }
 /*# sourceMappingURL=bulma.css.map */#app{
-    width: 100%;
-    height: 100%; 
+    width: 90%;
+    height: 90%; 
     display: flex;
     justify-content: center;   
     transform: rotate(90deg);
@@ -10450,17 +10443,18 @@ label.panel-block:hover {
     display: flex;
 }
 
-@media all and (min-width: 668px) {
+@media all and (min-width: 832px) {
     #app {
+        width: 100%;
+        height: 80%;
         transform: none;
-        height: 70%;
     }
 }.clock {
     background-image: url('alarmBg.b2d0922c.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    height: 65.93%;
+    height: 100%;
     width: 100%;
     margin: auto;
     align-items: center;
@@ -10469,7 +10463,7 @@ label.panel-block:hover {
     position: relative;
 }
 
-@media all and (min-width: 671px) {
+@media all and (min-width: 832px) {
     .clock {
         width: 820px;
         height: 573px;

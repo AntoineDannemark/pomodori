@@ -17,13 +17,14 @@
 }
 
 .digitWrapper {
-    width: 100%;
+    width: 50%;
+    display: flex;
+    font-size: 15vw;
+    transform: scale(1, 1.5);
 }
 
-@media all and (min-width: 668px) {
+@media all and (min-width: 832px) {
     .digit {
-        width: 100%;
         font-size: 170px;
-        transform: scale(1, 1.5);
     }
 }

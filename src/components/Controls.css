@@ -1,12 +1,12 @@
 .controls {
     width: 40%;
     height: 25%;
-    /* margin-right: 35%; */
+    margin: 10% 0 0 0;
     display: flex;
     position: relative;
 }
 
-@media all and (min-width: 668px) {
+@media all and (min-width: 832px) {
     .controls {
         margin: 80px 255px 0 0;
         width: 350px;

@@ -12,7 +12,7 @@ const Button = ({disabled, btnLogo, actionLeft, actionRight, key}) => (
                 onClick={actionLeft} 
                 onContextMenu={actionRight}
             >
-            <img src={alarmBtnClean} alt=""></img>     
+            <img src={ require ('../../public/img/alarmBtnClean')} alt=""></img>     
             </button>      
             <div className="btnLogo">{btnLogo}</div>
     </div>

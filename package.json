@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/AntoineDannemark/pomodori"
   },
-  "main": "index.js",
+  "main": "./src/index.js",
   "bugs": {
     "url": "https://github.com/AntoineDannemark/pomodori/issues"
   },
@@ -27,7 +27,7 @@
     "gh-pages": "^2.0.1"
   },
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel ./public/index.html",
     "build": "parcel build public/index.html --out-dir docs --public-url ./"
   },
   "browserslist": [

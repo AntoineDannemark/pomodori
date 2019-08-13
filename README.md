@@ -29,4 +29,4 @@ branch. Pull requests are welcome.
 
 ## Licensing
 
-The (bad) code in this project is licensed under MIT license.
+The code in this project is licensed under MIT license.
